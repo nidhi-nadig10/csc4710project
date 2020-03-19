@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CSC4710_NADIG_PART1">
+        <property name="context-root" value="CSC4710_NADIG_PART1"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+C:\Users\darpa\OneDrive - Wayne State University\CSC 4710 - Database\Project\Eclipse Project\.metadata\.plugins\org.eclipse.jdt.core
+1248545562.index
+576380148.index
+605227675.index
+4264795866.index
+1103351084.index
+3703393141.index

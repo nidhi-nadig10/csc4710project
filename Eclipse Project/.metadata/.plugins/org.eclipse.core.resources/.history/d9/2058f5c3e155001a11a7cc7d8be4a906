@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="CSC4710_NADIG_PART1">
+                
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
+                
+        <property name="java-output-path" value="/CSC4710_NADIG_PART1/build/classes"/>
+        <property name="context-root" value="CSC4710_SHAH_PART1"/>
+            
+    </wb-module>
+    
+</project-modules>
