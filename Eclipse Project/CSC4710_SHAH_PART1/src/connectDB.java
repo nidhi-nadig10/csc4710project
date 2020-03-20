@@ -101,21 +101,19 @@ public class connectDB extends HttpServlet {
 	    	
 	    	
 			 tableCreationSQL = " CREATE TABLE ANIMALS (\r\n" + 
+					"   id INT NOT NULL auto_increment, \r\n" + 
 					"   name varchar(255), 	\r\n" + 
 					"   species varchar(255),\r\n" + 
 					"   birthdate date,\r\n" + 
 					"   price float,\r\n" + 
 					"   traits varchar(255),\r\n" + 		
-					"   PRIMARY KEY(name)\r\n" + 
+					"   PRIMARY KEY(id)\r\n" + 
 					");\r\n" + 
 					"";
 				connect_func();   
 				preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 				preparedStatement.executeUpdate();
 	    
-		
-			
-			
 				dataInsertionSQL = "insert into ANIMALS (name,species,birthdate,price,traits)\r\n" + 
 				"values('Fido','Dog','2019/10/23','200','happy,slobbery,wiggly'),\r\n" + 
 				"('Remy','Rat','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
@@ -140,12 +138,13 @@ public class connectDB extends HttpServlet {
 		    	
 		    	
 				 tableCreationSQL = " CREATE TABLE USERANIMALS (\r\n" + 
+						"   id INT NOT NULL auto_increment, \r\n" +
 						"   name varchar(255), 	\r\n" + 
 						"   species varchar(255),\r\n" + 
 						"   birthdate date,\r\n" + 
 						"   price float,\r\n" + 
 						"   traits varchar(255),\r\n" + 		
-						"   PRIMARY KEY(name)\r\n" + 
+						"   PRIMARY KEY(id)\r\n" + 
 						");\r\n" + 
 						"";
 					connect_func();   

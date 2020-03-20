@@ -12,8 +12,7 @@
 	<nav id="navigation">
 		<ul>
 			<li class="current-menu-item"><a href="checkInfo.jsp">Home</a></li>
-			<li><a href="user_reg.jsp">Create Account</a></li>
-			<li><a href="login_page.jsp">Log In</a></li>
+			<li><a href="show_all.jsp">View Adoptions</a></li>
 		</ul>
 	</nav>
 
@@ -43,7 +42,7 @@
 				{
 					out.println("Successful Login!");
 					
-				}
+				} 
 				else
 				{
 					out.println("Username or password does not match try logging in again.");

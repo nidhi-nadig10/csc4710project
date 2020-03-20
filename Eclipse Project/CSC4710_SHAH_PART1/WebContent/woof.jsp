@@ -102,4 +102,17 @@ p {
   text-align: center;
 }
 
+.table{
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e4b48f;
+  font-size: 16px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+table, th, td {
+  border: 1px solid #e4b48f;
+  padding: 15px;
+}
     

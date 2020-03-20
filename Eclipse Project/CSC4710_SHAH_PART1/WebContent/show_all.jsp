@@ -10,7 +10,7 @@
 <body>
 	<nav id="navigation">
 		<ul>
-			<li class="current-menu-item"><a href="checkInfo.jsp">Home</a></li>
+			<li class="current-menu-item"><a href="show_all.jsp">Home</a></li>
 		</ul>
 	</nav>
 	
@@ -30,6 +30,7 @@
 			
 	</div>
 	</div>
+	
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>
 	</div>
