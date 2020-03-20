@@ -27,6 +27,7 @@
 		<td>Price</td>
 		<td>Traits</td>
 		<td>Review</td>
+		<td>View All Reviews</td>
 		</tr>
 	</table>
 	
@@ -60,7 +61,8 @@ while(rs.next()){
     <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
-    <td><form action = "review.jsp">Review</form></td>
+    <td><form action = "review.jsp"><input type="submit" value="Review"> </form></td>
+    <td><form action = "view_reviews.jsp"><input type="submit" value="View All Reviews"> </form></td>
     </tr>
     </table>
     

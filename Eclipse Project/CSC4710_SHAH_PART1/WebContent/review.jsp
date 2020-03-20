@@ -15,21 +15,25 @@
 			<li><a href = "user_adoptions.jsp">Show My Listings</a></li>
 		</ul>
 	</nav>
-<form action= "insertReview.jsp" method= "post">
-
-<select name = "rating">
-<option></option>
-<option value = "Totes Adorbs">Excellent</option>
-<option value = "Adorbs">Good</option>
-<option value = "Cray">Fair</option>
-<option value = "Cray-Cray">Poor</option>
-</select>
-<br></br>
-<a>Enter a Short Review</a>
-<br>
-<textarea rows = "3" name = "review"></textarea>
-<input type= "hidden" name="thisitemid1" value = "<%=request.getParameter("thisitemid")%>"/><br/><br/>
-<input type="submit"/>
-</form>
+	
+<div class="center">
+<div class="container">
+	<h1>Write A Review</h1>
+	<form action= "save_review.jsp" method= "post">
+	<h3>Choose a Rating</h3>
+	<select name = "rating">
+		<option></option>
+		<option value = "Totes Adorbs">Totes Adorbs</option>
+		<option value = "Adorbs">Adorbs</option>
+		<option value = "Cray">Cray</option>
+		<option value = "Cray-Cray">Cray Cray</option>
+	</select>
+	<br></br>
+	<h3>Enter a Short Review</h3>
+	<textarea rows = "3" name = "review"></textarea>
+	<input type="submit"/>
+	</form>
+</div>
+</div>
 </body>
 </html>

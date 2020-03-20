@@ -151,6 +151,23 @@ public class connectDB extends HttpServlet {
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
 				
+				connect_func();
+		    	dropTablesSQL = "DROP TABLE IF EXISTS REVIEWS;";
+		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+		    	preparedStatement.executeUpdate();
+		    	System.out.println("Review table dropped succesfully.");
+		    	
+		    	
+				 tableCreationSQL = " CREATE TABLE REVIEWS (\r\n" + 
+						"   id INT NOT NULL auto_increment, \r\n" +
+						"   rating varchar(255), 	\r\n" + 
+						"   review varchar(255),\r\n" + 		
+						"   PRIMARY KEY(id)\r\n" + 
+						");\r\n" + 
+						"";
+					connect_func();   
+					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+					preparedStatement.executeUpdate();
 				
 				
 				
