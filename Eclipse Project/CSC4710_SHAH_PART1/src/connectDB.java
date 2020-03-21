@@ -106,7 +106,8 @@ public class connectDB extends HttpServlet {
 					"   species varchar(255),\r\n" + 
 					"   birthdate date,\r\n" + 
 					"   price float,\r\n" + 
-					"   traits varchar(255),\r\n" + 		
+					"   traits varchar(255),\r\n" + 
+					" review varchar(255),\r\n" +
 					"   PRIMARY KEY(id)\r\n" + 
 					");\r\n" + 
 					"";

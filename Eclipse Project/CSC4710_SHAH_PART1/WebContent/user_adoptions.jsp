@@ -42,7 +42,8 @@ Statement st = connect.createStatement();
 Animal animal = new Animal();
 int animal_id = animal.getAnimalID();
 
-String query = "SELECT * FROM USERANIMALS WHERE id = '+ animal_id+';";
+String query = "SELECT * FROM USERANIMALS WHERE id = " + '"'+ animal_id+'"' + ";";
+
 
 ResultSet rs = st.executeQuery(query);
 while(rs.next()){

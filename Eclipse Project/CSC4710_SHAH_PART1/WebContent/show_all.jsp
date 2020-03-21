@@ -27,6 +27,11 @@
 		<form action="user_adoptions.jsp">
 			<button type="submit" value="List My Adoptions" class="buttonOne">List My Adoptions</button>
 		</form>
+		
+		<h1>Search Animals</h1>
+		<form action="search_animal.jsp">
+			<button type="submit" value="Search Animals" class="buttonOne">Search Animals</button>
+		</form>
 			
 	</div>
 	</div>
