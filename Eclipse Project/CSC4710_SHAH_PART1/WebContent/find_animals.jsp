@@ -27,7 +27,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
-	String rating= request.getParameter("rating");
+	String trait= request.getParameter("trait");
 		
 	Class.forName("com.mysql.jdbc.Driver");
 	java.sql.Connection connect = DriverManager
@@ -35,16 +35,18 @@
 	     + "user=john&password=pass1234");
 	Statement st = connect.createStatement();
 	
-	String findAnimalSQL = "SELECT * FROM reviews WHERE rating = " + '"'+ rating+'"' + ";";
+	String findAnimalSQL = "SELECT * FROM animals WHERE traits LIKE " + "'%" + trait +"%';";
+	out.println(findAnimalSQL);
 		
 	ResultSet rs = st.executeQuery(findAnimalSQL);
-	out.println(rating);
+	out.println("Search results for '" + trait + "'");
 	while(rs.next()){
 	%>	
 		<table class=table>
 		<tr>
-	    <td><%=rs.getString("rating") %></td>
-	    <td><%=rs.getString("review") %></td>
+	    <td><%=rs.getString("name") %></td>
+	    <td><%=rs.getString("species") %></td>
+	    <td><%=rs.getString("traits") %></td>
 	    </tr>
 	    </table>
 	    
