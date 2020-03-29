@@ -12,6 +12,7 @@
 		<ul>
 			<li class="current-menu-item"><a href="show_all.jsp">Home</a></li>
 			<li><a href="add_animal.jsp">Post an Animal</a></li>
+			<li><a href="view_favorites.jsp">View Favorites</a></li>
 		</ul>
 	</nav>
 	

@@ -146,10 +146,7 @@ public class connectDB extends HttpServlet {
 					connect_func();   
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
-		    
-			
-				
-				
+
 					 dataInsertionSQL = "insert into traits (traitList)\r\n" + 
 					"values('adventurous'),\r\n" + 
 					"('happy'),\r\n" + 
@@ -202,12 +199,62 @@ public class connectDB extends HttpServlet {
 					connect_func();   
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
-				
-				
+					
+				//FAVORITE BREEDERS TABLE
+				connect_func();
+		    	dropTablesSQL = "DROP TABLE IF EXISTS FAVBREEDERS;";
+		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+		    	preparedStatement.executeUpdate();
+		    	System.out.println("Breeders dropped succesfully.");
+		    	
+		    	
+				 tableCreationSQL = " CREATE TABLE FAVBREEDERS (\r\n" + 
+						"   id INT NOT NULL auto_increment, \r\n" +
+						"   favUser varchar(255), 	\r\n" + 		
+						"   PRIMARY KEY(id)\r\n" + 
+						");\r\n" + 
+						"";
+					connect_func();   
+					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+					preparedStatement.executeUpdate();
+					
+					dataInsertionSQL = "insert into FAVBREEDERS (favUser)\r\n" + 
+							"values('Aubrey'),\r\n" + 
+							"('Darpan'),\r\n" + 
+							"('Nidhi')";
+							
+							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
+							preparedStatement.executeUpdate();
+							System.out.println("Breeders created succesfully.");
+					
+				//FAVORITE ANIMALS TABLE
+				connect_func();
+		    	dropTablesSQL = "DROP TABLE IF EXISTS FAVANIMALS;";
+		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+		    	preparedStatement.executeUpdate();
+		    	System.out.println("Favorite Animals dropped succesfully.");
+		    	
+		    	
+				 tableCreationSQL = " CREATE TABLE FAVANIMALS (\r\n" + 
+						"   id INT NOT NULL auto_increment, \r\n" +
+						"   favAnimal varchar(255), 	\r\n" + 		
+						"   PRIMARY KEY(id)\r\n" + 
+						");\r\n" + 
+						"";
+					connect_func();   
+					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+					preparedStatement.executeUpdate();
+					
+					dataInsertionSQL = "insert into FAVANIMALS (favAnimal)\r\n" + 
+							"values('Fido'),\r\n" + 
+							"('Remy'),\r\n" + 
+							"('Baloo')";
+							
+							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
+							preparedStatement.executeUpdate();
+							System.out.println("Favorite Animals created succesfully.");
 				
 				connect.close();
-			
-		
 			
 			return;
     
