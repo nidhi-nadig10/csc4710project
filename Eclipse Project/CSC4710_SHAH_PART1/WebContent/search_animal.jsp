@@ -16,6 +16,7 @@
 		</ul>
 	</nav>
 	
+<main>
 <div class="center">
 <div class="container">
 	<h1>Find Animal</h1>
@@ -34,5 +35,6 @@
 	</form>
 </div>
 </div>
+</main>
 </body>
 </html>
