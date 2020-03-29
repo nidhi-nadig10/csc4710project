@@ -18,4 +18,13 @@ public class User {
 	public int getUserID() {
 		return UserID;
 	}
+	
+	public void setUsername(String s) {
+		Username = s;
+	}
+	
+	public String getUsername()
+	{
+		return Username;
+	}
 }

@@ -44,6 +44,7 @@
 				{
 					out.println("Successful Login!");
 					out.println("Redirecting to Home Page");
+		
 					%>
 							<head>  
     						<title>HTML Redirect</title>  
