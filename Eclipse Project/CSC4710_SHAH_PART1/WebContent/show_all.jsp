@@ -11,6 +11,7 @@
 	<nav id="navigation">
 		<ul>
 			<li class="current-menu-item"><a href="show_all.jsp">Home</a></li>
+			<li><a href="add_animal.jsp">Post an Animal</a></li>
 		</ul>
 	</nav>
 	
