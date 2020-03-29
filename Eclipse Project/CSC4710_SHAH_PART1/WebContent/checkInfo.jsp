@@ -32,8 +32,10 @@
 		
 		ResultSet rs = st.executeQuery(query);
 		
+%>
 		
 		
+		<%
 		while(rs.next())
 		{
 			if(user.equals(rs.getString("username")))
@@ -41,17 +43,37 @@
 				if(passw.equals(rs.getString("pw")))
 				{
 					out.println("Successful Login!");
+					out.println("Redirecting to Home Page");
+					%>
+							<head>  
+    						<title>HTML Redirect</title>  
+    						<meta http-equiv="refresh"content="2; url = show_all.jsp" /> 
+    						</head>  
 					
+				<%	
 				} 
 				else
 				{
 					out.println("Username or password does not match try logging in again.");
-					
+					out.println("Redirecting back to login page");
+							%>
+							<head>  
+    						<title>HTML Redirect</title>  
+    						<meta http-equiv="refresh"content="2; url = login_page.jsp" /> 
+    						</head> 
+    						
+				<%			
 				}
 			}
 			else
 			{
 				out.println("Username or password does not match try logging in again.");
+				%>
+					<head>  
+    						<title>HTML Redirect</title>  
+    						<meta http-equiv="refresh"content="2; url = login_page.jsp" /> 
+    						</head> 
+				<%
 			}
 			
 			

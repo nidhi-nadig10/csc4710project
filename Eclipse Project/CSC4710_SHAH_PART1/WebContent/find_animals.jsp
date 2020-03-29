@@ -36,7 +36,6 @@
 	Statement st = connect.createStatement();
 	
 	String findAnimalSQL = "SELECT * FROM animals WHERE traits LIKE " + "'%" + trait +"%';";
-	out.println(findAnimalSQL);
 		
 	ResultSet rs = st.executeQuery(findAnimalSQL);
 	out.println("Search results for '" + trait + "'");
