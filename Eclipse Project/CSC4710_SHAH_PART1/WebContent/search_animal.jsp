@@ -22,12 +22,13 @@
 	<h1>Find Animal</h1>
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Rating</h3>
-	<select name = "rating">
+	<select name = "trait">
 		<option></option>
-		<option value = "Totes Adorbs">Totes Adorbs</option>
-		<option value = "Adorbs">Adorbs</option>
-		<option value = "Cray">Cray</option>
-		<option value = "Cray-Cray">Cray Cray</option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
 	</select>
 	<br></br>
 	

@@ -57,6 +57,7 @@ public class connectDB extends HttpServlet {
     
     public void createUsersTable() throws SQLException{   
     	
+    	//USER TABLE
     	connect_func();
     	String dropTablesSQL = "DROP TABLE IF EXISTS USERS;";
     	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
@@ -77,8 +78,6 @@ public class connectDB extends HttpServlet {
 			preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 			preparedStatement.executeUpdate();
     
-	
-		
 		
 			String dataInsertionSQL = "insert into users (username,pw,firstname,lastname,email)\r\n" + 
 			"values('root','pass1234','rootuser','admin','root@admin.com'),\r\n" + 
@@ -92,7 +91,7 @@ public class connectDB extends HttpServlet {
 			System.out.println("Users created succesfully.");
 			//connect.close();
 			
-			
+			//ANIMALS TABLE
 			connect_func();
 	    	dropTablesSQL = "DROP TABLE IF EXISTS ANIMALS;";
 	    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
@@ -131,6 +130,38 @@ public class connectDB extends HttpServlet {
 				preparedStatement.executeUpdate();
 				System.out.println("Animals created succesfully.");
 				
+				//TRAITS TABLE
+				connect_func();
+				dropTablesSQL = "DROP TABLE IF EXISTS TRAITS;";
+		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+		    	preparedStatement.executeUpdate();
+		    	System.out.println("Tables dropped succesfully.");
+		    	
+		    	
+		    	tableCreationSQL = " CREATE TABLE TRAITS (\r\n" + 
+						"   traitList varchar(255)" + 
+						");\r\n" + 
+						"";
+					connect_func();   
+					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+					preparedStatement.executeUpdate();
+		    
+			
+				
+				
+					 dataInsertionSQL = "insert into traits (traitList)\r\n" + 
+					"values('adventurous'),\r\n" + 
+					"('happy'),\r\n" + 
+					"('slobbery'),\r\n" + 
+					"('wiggly'),\r\n" + 
+					"('dirty');";
+					
+					preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
+					preparedStatement.executeUpdate();
+					System.out.println("Users created succesfully.");
+				
+					
+				//USER ANIMALS TABLE	
 				connect_func();
 		    	dropTablesSQL = "DROP TABLE IF EXISTS USERANIMALS;";
 		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
@@ -152,6 +183,7 @@ public class connectDB extends HttpServlet {
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
 				
+				//REVIEWS TABLE	
 				connect_func();
 		    	dropTablesSQL = "DROP TABLE IF EXISTS REVIEWS;";
 		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
