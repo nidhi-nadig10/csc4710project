@@ -21,13 +21,13 @@
 	
 	<table class = table>
 		<tr>
-		<td>Animal Name</td>
-		<td>Species</td>
-		<td>Birth Date</td>
-		<td>Price</td>
-		<td>Traits</td>
-		<td>Review</td>
-		<td>View All Reviews</td>
+		<th>Animal Name</th>
+		<th>Species</th>
+		<th>Birth Date</th>
+		<th>Price</th>
+		<th>Traits</th>
+		<th>Review</th>
+		<th>View All Reviews</th>
 		</tr>
 	</table>
 	

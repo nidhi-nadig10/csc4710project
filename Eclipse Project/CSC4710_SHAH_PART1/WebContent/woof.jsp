@@ -102,17 +102,28 @@ p {
   text-align: center;
 }
 
-.table{
-  border-collapse: collapse;
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #e4b48f;
-  font-size: 16px;
+.table {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: #FFEEE5;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.table, th, td {
+  border: 1px solid #E4B48F;
+  padding: 3px 2px;
+}
+.table, td {
+  font-size: 13px;
+  color: #000000;
+}
+.table th {
+  background: #FFEEE5;
+  border-bottom: 2px solid #E4B48F;
+  
+.table th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
 }
 
-table, th, td {
-  border: 1px solid #e4b48f;
-  padding: 15px;
-}
-    

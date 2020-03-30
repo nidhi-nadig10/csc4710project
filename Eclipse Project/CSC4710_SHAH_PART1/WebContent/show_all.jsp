@@ -13,6 +13,7 @@
 			<li class="current-menu-item"><a href="show_all.jsp">Home</a></li>
 			<li><a href="add_animal.jsp">Post an Animal</a></li>
 			<li><a href="view_favorites.jsp">View Favorites</a></li>
+			<li><a href="search_animal.jsp">Search Animals</a></li>
 		</ul>
 	</nav>
 	
@@ -28,11 +29,6 @@
 	<h1>List My Adoptions</h1>
 		<form action="user_adoptions.jsp">
 			<button type="submit" value="List My Adoptions" class="buttonOne">List My Adoptions</button>
-		</form>
-		
-		<h1>Search Animals</h1>
-		<form action="search_animal.jsp">
-			<button type="submit" value="Search Animals" class="buttonOne">Search Animals</button>
 		</form>
 			
 	</div>
