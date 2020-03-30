@@ -20,7 +20,7 @@
 	<div class="center">
 	<div class="container">
 	
-	<h1>Animal Details</h1>
+	<h1>Animal Details <%out.ln(request.getParameter("Username")); %></h1>
 		<form action="animal_to_table.jsp">
 			<label for="name">Name:</label><br>
 				<input type="text" id="name" name="name">

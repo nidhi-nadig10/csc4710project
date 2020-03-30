@@ -34,6 +34,7 @@ public class connectDB extends HttpServlet {
 	private ResultSet resultSet = null;
 	
 	
+	
 	public connectDB() {
 
     }
