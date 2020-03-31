@@ -13,6 +13,8 @@
 			<li><a href="show_all.jsp">Home</a></li>
 			<li><a href="add_animal.jsp">Post an Animal</a></li>
 			<li class="current-menu-item"><a href="view_favorites.jsp">View Favorites</a></li>
+			<li><a href="search_animal.jsp">Search Animals</a></li>
+			<li><a href="list_by_price.jsp">List By Price</a></li>
 		</ul>
 	</nav>
 	
@@ -20,8 +22,8 @@
 	<div class="center">
 	<table class = table>
 		<tr>
-		<td>Favorite Breeders</td>
-		<td>Remove From List</td>
+		<th>Favorite Breeders</th>
+		<th>Remove From List</th>
 		</tr>
 	</table>
 	

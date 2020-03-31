@@ -18,9 +18,9 @@
 	
 	<table class = table>
 		<tr>
-		<td>ID</td>
-		<td>Rating</td>
-		<td>Review</td>
+		<th>ID</th>
+		<th>Rating</th>
+		<th>Review</th>
 		</tr>
 	</table>
 	
