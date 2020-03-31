@@ -24,7 +24,7 @@
 		<h1>Log In</h1>
 			<form action = "checkInfo.jsp">
 				<label for="user">Username:</label><br>
-				<input type="text" id="user" name="user" value = "${User.Username}"><br>
+				<input type="text" id="user" name="user"><br>
 				<label for="passw">Password:</label><br>
 				<input type="password" id="passw" name="passw"><br>
 				<input type="submit" value="Log In">

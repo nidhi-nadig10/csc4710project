@@ -58,15 +58,34 @@ public class connectDB extends HttpServlet {
     
     public void createUsersTable() throws SQLException{   
     	
-    	//USER TABLE
+    	//Create logged in user table
     	connect_func();
-    	String dropTablesSQL = "DROP TABLE IF EXISTS USERS;";
+    	String dropTablesSQL = "DROP TABLE IF EXISTS LOGGEDINUSER;";
     	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
     	preparedStatement.executeUpdate();
     	System.out.println("Tables dropped succesfully.");
     	
     	
-		String tableCreationSQL = " CREATE TABLE USERS (\r\n" + 
+		String tableCreationSQL = " CREATE TABLE LOGGEDINUSER (\r\n" + 
+				"   username varchar(255), 	\r\n" + 
+			
+				"   PRIMARY KEY(username)\r\n" + 
+				");\r\n" + 
+				"";
+			connect_func();   
+			preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+			preparedStatement.executeUpdate();
+    	
+    	
+    	//USER TABLE
+    	connect_func();
+    	 dropTablesSQL = "DROP TABLE IF EXISTS USERS;";
+    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+    	preparedStatement.executeUpdate();
+    	System.out.println("Tables dropped succesfully.");
+    	
+    	
+		 tableCreationSQL = " CREATE TABLE USERS (\r\n" + 
 				"   username varchar(255), 	\r\n" + 
 				"   pw varchar(255),\r\n" + 
 				"   firstname varchar(255),\r\n" + 
@@ -191,8 +210,10 @@ public class connectDB extends HttpServlet {
 		    	
 				 tableCreationSQL = " CREATE TABLE REVIEWS (\r\n" + 
 						"   id INT NOT NULL auto_increment, \r\n" +
+						"   animalname varchar(255), \r\n" + 
 						"   rating varchar(255), 	\r\n" + 
-						"   review varchar(255),\r\n" + 		
+						"   review varchar(255),\r\n" + 
+						"   username varchar(255),\r\n" + 
 						"   PRIMARY KEY(id)\r\n" + 
 						");\r\n" + 
 						"";
