@@ -12,7 +12,6 @@
 		<ul>
 			<li><a href="show_all.jsp">Home</a></li>
 			<li class="current-menu-item"><a href="add_animal.jsp">Post an Animal</a></li>
-			<li><a href="view_favorites.jsp">View Favorites</a></li>
 		</ul>
 	</nav>
 	
@@ -20,7 +19,7 @@
 	<div class="center">
 	<div class="container">
 	
-	<h1>Animal Details <%out.ln(request.getParameter("Username")); %></h1>
+	<h1>Animal Details</h1>
 		<form action="animal_to_table.jsp">
 			<label for="name">Name:</label><br>
 				<input type="text" id="name" name="name">

@@ -41,9 +41,19 @@
 			if(user.equals(rs.getString("username")))
 			{
 				if(passw.equals(rs.getString("pw")))
-				{
+				{	
+					
+					
+					String query2 = "INSERT INTO loggedinuser (username) VALUES ('"+user+"');";
+					PreparedStatement preparedStatement;
+					preparedStatement = (PreparedStatement) connect.prepareStatement(query2);
+					preparedStatement.executeUpdate();
+					 
 					out.println("Successful Login!");
 					out.println("Redirecting to Home Page");
+								
+					 
+					
 		
 					%>
 							<head>  
