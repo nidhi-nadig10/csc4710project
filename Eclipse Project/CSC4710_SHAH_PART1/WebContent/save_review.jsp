@@ -27,11 +27,21 @@
 	     + "user=john&password=pass1234");
 	Statement st = connect.createStatement();
 	
-	String registerUserSQL = "INSERT INTO REVIEWS(rating, review)\r\n" + 
-		"VALUES('"+rating+"','"+review+"')";
+	String query = "SELECT * FROM loggedinuser;";
+	ResultSet rs = st.executeQuery(query);
+	
+	while(rs.next())
+	{	String user = rs.getString("username");
+	
+	String registerUserSQL = "INSERT INTO REVIEWS(rating, review, username)\r\n" + 
+			"VALUES('"+rating+"','"+review+"','"+user+"')";
 	PreparedStatement preparedStatement;
 	preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
 	preparedStatement.executeUpdate();
+	}
+	
+	
+	
 	out.println("Thank you for rating!");
 %>
 	<div class="footer">

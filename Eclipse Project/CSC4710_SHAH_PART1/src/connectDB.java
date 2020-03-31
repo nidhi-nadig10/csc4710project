@@ -210,8 +210,10 @@ public class connectDB extends HttpServlet {
 		    	
 				 tableCreationSQL = " CREATE TABLE REVIEWS (\r\n" + 
 						"   id INT NOT NULL auto_increment, \r\n" +
+						"   animalname varchar(255), \r\n" + 
 						"   rating varchar(255), 	\r\n" + 
-						"   review varchar(255),\r\n" + 		
+						"   review varchar(255),\r\n" + 
+						"   username varchar(255),\r\n" + 
 						"   PRIMARY KEY(id)\r\n" + 
 						");\r\n" + 
 						"";
