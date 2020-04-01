@@ -120,8 +120,6 @@ p {
 .table th {
   background: #FFEEE5;
   border-bottom: 2px solid #E4B48F;
-  
-.table th {
   font-size: 14px;
   font-weight: bold;
   color: #000000;
