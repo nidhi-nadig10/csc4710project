@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -27,12 +28,13 @@
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Trait</h3>
 	<select name = "trait">
-		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
+	<c:forEach items="${listAnimal}" var="animal">
+		<option value = "">
+		<c:if test="${animal.id eq selectedThisTrait}">selected="selected"</c:if>
+                    >
+                    ${category.name}
+		</option>
+	</c:forEach>
 	</select>
 	<br></br>
 	

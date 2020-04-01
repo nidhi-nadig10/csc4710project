@@ -276,6 +276,7 @@ public class connectDB extends HttpServlet {
 	            throws ServletException, IOException {
 	        doGet(request, response);
 	    }
+	 
 	/*
     public List<User> listAllUsers() throws SQLException {
         List<User> listUsers = new ArrayList<User>();        
