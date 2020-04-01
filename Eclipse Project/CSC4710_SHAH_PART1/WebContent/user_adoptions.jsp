@@ -47,20 +47,30 @@ Statement st = connect.createStatement();
 Animal animal = new Animal();
 int animal_id = animal.getAnimalID();
 
-String query = "SELECT * FROM USERANIMALS WHERE id = " + '"'+ animal_id+'"' + ";";
 
-
+String query = "SELECT * FROM loggedinuser;";
 ResultSet rs = st.executeQuery(query);
+
+while(rs.next())
+{
+	String user = rs.getString("username");
+	query = "SELECT * FROM ANIMALS WHERE username = " + '"'+ user+'"' + ";";
+}
+
+rs = st.executeQuery(query);
+
+
+
 while(rs.next()){
 %>	
 	<table class=table>
 	<tr>
     <td><%=rs.getString("name") %></td>
     <td><%=rs.getString("species") %></td>
-    <td><%=rs.getString("bday") %></td>
+    <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
-    <td><form action = "review.jsp">Review</form></td>
+   
     </tr>
     </table>
     

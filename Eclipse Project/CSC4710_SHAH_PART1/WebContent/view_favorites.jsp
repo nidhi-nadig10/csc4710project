@@ -15,6 +15,7 @@
 			<li class="current-menu-item"><a href="view_favorites.jsp">View Favorites</a></li>
 			<li><a href="search_animal.jsp">Search Animals</a></li>
 			<li><a href="list_by_price.jsp">List By Price</a></li>
+			<li><a href="view_reviews.jsp">View Reviews</a></li>
 		</ul>
 	</nav>
 	
@@ -23,7 +24,6 @@
 	<table class = table>
 		<tr>
 		<th>Favorite Breeders</th>
-		<th>Remove From List</th>
 		</tr>
 	</table>
 	
@@ -46,17 +46,20 @@ while(rs.next()){
 	<table class=table>
 	<tr>
     <td><%=rs.getString("favUser") %></td>
-    <td><form action = "remove_breeder"><input type="submit" value="Remove Breeder"> </form></td>
     </tr>
     </table>
     
 <% 
 }
-%>	
+%>	<table class=table>
+	<tr class="blank_row">
+	<td colspan="2"></td>
+	</tr>
+	</table>
+	
 	<table class = table>
 		<tr>
-		<td>Favorite Animals</td>
-		<td>Remove From List</td>
+		<th>Favorite Animals</th>
 		</tr>
 	</table>
 	
@@ -74,18 +77,89 @@ String query2 = "SELECT * FROM FAVANIMALS;";
 ResultSet rs2 = st2.executeQuery(query2);
 
 
-while(rs2.next()){
+	
+
+ 
+	while(rs2.next()){
 %>	
 	<table class=table>
 	<tr>
     <td><%=rs2.getString("favAnimal") %></td>
-    <td><form action = "remove_animal.jsp"><input type="submit" value="Remove Animal"> </form></td>
     </tr>
     </table>
     
 <% 
 }
 %>
+
+
+<form action= "find_animals.jsp" method= "post" style ="float:left">
+	<h3>Add Fav Breeder</h3>
+	<select name = "trait">
+		<option></option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Animals" class="buttonTwo">Add Fav Breeder</button>
+	</form>
+	
+	<form action= "find_animals.jsp" method= "post" style ="float:left">
+	<h3>Remove Fav Breeder</h3>
+	<select name = "trait">
+		<option></option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Animals" class="buttonTwo">Remove Fav Breeder</button>
+	</form>
+	
+	
+	<form action= "find_animals.jsp" method= "post" style ="float:right">
+	<h3>Remove Fav Animal</h3>
+	<select name = "trait">
+		<option></option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Animals" class="buttonTwo">Remove Fav Animal</button>
+	</form>
+	
+	
+<form action= "find_animals.jsp" method= "post" style ="float:right">
+	<h3>Add Fav Animal</h3>
+	<select name = "trait">
+		<option></option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Animals" class="buttonTwo">Add Fav Animal</button>
+	</form>
+	
+	
+	
+	
+
+
 </div>	
 	</main>
 	<div class="footer">

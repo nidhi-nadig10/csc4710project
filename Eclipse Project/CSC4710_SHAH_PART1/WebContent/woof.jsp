@@ -92,6 +92,24 @@ p {
   color: #ffeee5;
 }
 
+.buttonTwo {
+	background-color: #e4b48f;
+	border: none;
+	padding: 10px 18px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	border-radius: 12px;
+	transition-duration: 0.4s;
+}
+
+.buttonTwo:hover {
+  background-color: #e4b48f;
+  color: #ffeee5;
+}
+
 .footer {
   position: fixed;
   left: 0;
@@ -129,4 +147,13 @@ p {
   font-weight: bold;
   color: #000000;
 }
+
+.blank_row
+{
+    height: 40px !important; /* overwrites any other rules */
+    background-color: #FFFFFF;
+}
+
+.floatLeft { width: 50%; float: left; }
+.floatRight {width: 50%; float: right; }
 

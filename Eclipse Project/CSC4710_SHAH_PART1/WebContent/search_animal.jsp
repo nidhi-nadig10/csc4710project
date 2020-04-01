@@ -16,6 +16,7 @@
 			<li><a href="view_favorites.jsp">View Favorites</a></li>
 			<li class="current-menu-item"><a href="search_animal.jsp">Search Animals</a></li>
 			<li><a href="list_by_price.jsp">List By Price</a></li>
+			<li><a href="view_reviews.jsp">View Reviews</a></li>
 		</ul>
 	</nav>
 	
@@ -24,7 +25,7 @@
 <div class="container">
 	<h1>Find Animal</h1>
 	<form action= "find_animals.jsp" method= "post">
-	<h3>Choose a Rating</h3>
+	<h3>Choose a Trait</h3>
 	<select name = "trait">
 		<option></option>
 		<option value = "adventurous">Adventurous</option>

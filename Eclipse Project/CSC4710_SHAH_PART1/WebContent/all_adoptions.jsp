@@ -64,15 +64,33 @@ while(rs.next()){
     <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
-    <td><form action = "review.jsp"><input type="submit" value="Review"> </form></td>
-    <td><form action = "view_reviews.jsp"><input type="submit" value="View All Reviews"> </form></td>
     </tr>
     </table>
     
 <% 
 }
 %>
-
+      
+    <form action= "review.jsp" method= "post" style ="float:center">
+	<h3>Review Animal</h3>
+	<select name = "trait">
+		<option></option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Review Animal" class="buttonTwo">Review Animal</button>
+	</form>
+	
+	<form action="view_reviews.jsp" method="post">
+		<button type="submit" value="View All Reviews" class="buttonTwo">View All Reviews</button> 
+	</form>
+	        
+   
 	</div>
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>

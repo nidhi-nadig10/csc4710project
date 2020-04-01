@@ -28,21 +28,59 @@
 		 		.getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
 		     + "user=john&password=pass1234");
 		Statement st = connect.createStatement();
+		Statement st1 = connect.createStatement();
 		
-		String registerUserSQL = "INSERT INTO animals(name, species, birthdate, price, traits)\r\n" + 
-			"VALUES('"+name+"','"+species+"','"+birthdate+"','"+price+"','"+traits+"')";
-		PreparedStatement preparedStatement;
-		preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
-		preparedStatement.executeUpdate();
-		out.println("Added to animals table");
 		
-		String registerUserSQL2 = "INSERT INTO useranimals(name, species, birthdate, price, traits)\r\n" + 
-				"VALUES('"+name+"','"+species+"','"+birthdate+"','"+price+"','"+traits+"')";
-			PreparedStatement preparedStatement2;
-			preparedStatement2 = (PreparedStatement) connect.prepareStatement(registerUserSQL2);
-			preparedStatement2.executeUpdate();
-			out.println("Added to user animals table");
-%>
+		
+		
+		String query = "SELECT * FROM loggedinuser;";
+		ResultSet rs = st.executeQuery(query);
+		
+
+		while(rs.next())
+		{
+			String user = rs.getString("username");
+			
+			query = "SELECT COUNT(*) FROM animals where username = '"+user+"';";
+			ResultSet rs1 = st1.executeQuery(query);
+			
+				while(rs1.next())
+				{
+					int count = rs1.getInt("COUNT(*)");
+					
+					if(count==5)
+					{
+						%>
+						<head>  
+						<title>CANNOT ADD ANIMAL LIMIT = 5</title>  
+						<meta http-equiv="refresh"content="2; url = user_adoptions.jsp" /> 
+						</head>  
+				
+			<%	
+					} 
+					else
+					{
+						String registerUserSQL = "INSERT INTO animals(name, species, birthdate, price, traits, username)\r\n" + 
+								"VALUES('"+name+"','"+species+"','"+birthdate+"','"+price+"','"+traits+"','"+user+"');";
+							PreparedStatement preparedStatement;
+							preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
+							preparedStatement.executeUpdate();
+							out.println("Added to animals table");
+						
+								%>
+								<head>  
+								<title>ANIMAL ADDED</title>  
+								<meta http-equiv="refresh"content="2; url = user_adoptions.jsp" /> 
+								</head>
+								
+					<%			
+					}
+				}
+				
+		}
+				
+			
+		%>
 
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>

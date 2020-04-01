@@ -15,6 +15,7 @@
 			<li><a href="view_favorites.jsp">View Favorites</a></li>
 			<li><a href="search_animal.jsp">Search Animals</a></li>
 			<li><a href="list_by_price.jsp">List By Price</a></li>
+			<li><a href="view_reviews.jsp">View Reviews</a></li>
 		</ul>
 	</nav>
 	

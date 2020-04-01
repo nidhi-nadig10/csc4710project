@@ -127,6 +127,7 @@ public class connectDB extends HttpServlet {
 					"   price float,\r\n" + 
 					"   traits varchar(255),\r\n" + 
 					" review varchar(255),\r\n" +
+					" username varchar(255),\r\n" +
 					"   PRIMARY KEY(id)\r\n" + 
 					");\r\n" + 
 					"";
@@ -178,27 +179,6 @@ public class connectDB extends HttpServlet {
 					System.out.println("Users created succesfully.");
 				
 					
-				//USER ANIMALS TABLE	
-				connect_func();
-		    	dropTablesSQL = "DROP TABLE IF EXISTS USERANIMALS;";
-		    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
-		    	preparedStatement.executeUpdate();
-		    	System.out.println("Tables dropped succesfully.");
-		    	
-		    	
-				 tableCreationSQL = " CREATE TABLE USERANIMALS (\r\n" + 
-						"   id INT NOT NULL auto_increment, \r\n" +
-						"   name varchar(255), 	\r\n" + 
-						"   species varchar(255),\r\n" + 
-						"   birthdate date,\r\n" + 
-						"   price float,\r\n" + 
-						"   traits varchar(255),\r\n" + 		
-						"   PRIMARY KEY(id)\r\n" + 
-						");\r\n" + 
-						"";
-					connect_func();   
-					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
-					preparedStatement.executeUpdate();
 				
 				//REVIEWS TABLE	
 				connect_func();
