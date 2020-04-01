@@ -16,13 +16,7 @@
 		</ul>
 	</nav>
 	
-	<table class = table>
-		<tr>
-		<th>ID</th>
-		<th>Rating</th>
-		<th>Review</th>
-		</tr>
-	</table>
+	
 	
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
@@ -41,14 +35,17 @@
 	out.println("Search results for '" + trait + "'");
 	while(rs.next()){
 	%>	
-	
+		<div class="center">
 		<table class = table>
 		<tr>
-		<td>Name</td>
-		<td>Rating</td>
-		<td>Review</td>
+		<th>Name</th>
+		<th>Species</th>
+		<th>Traits</th>
 		</tr>
-		</table>	
+		</table>
+		
+	
+	
 	
 		<table class=table>
 		<tr>
@@ -61,7 +58,7 @@
 	<% 
 	}
 	%>	
-
+	</div>
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>
 	</div>

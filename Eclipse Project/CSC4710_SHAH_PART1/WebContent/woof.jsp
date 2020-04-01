@@ -108,7 +108,10 @@ p {
   width: 100%;
   text-align: left;
   border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
+
 .table, th, td {
   border: 1px solid #E4B48F;
   padding: 3px 2px;
