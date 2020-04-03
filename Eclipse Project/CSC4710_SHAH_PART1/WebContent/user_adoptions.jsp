@@ -27,6 +27,7 @@
 		<tr>
 		<th>Animal Name</th>
 		<th>Species</th>
+		<th>Breeder</th>
 		<th>Birth Date</th>
 		<th>Price</th>
 		<th>Traits</th>
@@ -34,8 +35,6 @@
 	</table>
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
-<%@ page import = "packageDB.User" %>
-<%@ page import = "packageDB.Animal" %>
 
 <%
 Class.forName("com.mysql.jdbc.Driver");
@@ -43,9 +42,6 @@ java.sql.Connection connect = DriverManager
   .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
-
-Animal animal = new Animal();
-int animal_id = animal.getAnimalID();
 
 
 String query = "SELECT * FROM loggedinuser;";
@@ -67,6 +63,7 @@ while(rs.next()){
 	<tr>
     <td><%=rs.getString("name") %></td>
     <td><%=rs.getString("species") %></td>
+    <td><form action="view_favorites.jsp">"<%=rs.getString("breeder") %></form></td>
     <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
