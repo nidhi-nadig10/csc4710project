@@ -27,25 +27,14 @@
 	<h1>Find Animal</h1>
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Trait</h3>
-	<select name = "traits">
-		<option value = "Select a trait">Select a Trait</option>
-		<option value = "happy">happy</option>
-		<option value = "slobbery">slobbery</option>
-		<option value = "wiggly">wiggly</option>
-		<option value = "dirty">dirty</option>
-		<option value = "adventurous">adventurous</option>
-		<option value = "sexy">sexy</option>
-		<option value = "flawless">flawless</option>
-		<option value = "fluffy">fluffy</option>
-		<option value = "angry">angry</option>
-		<option value = "feisty">feisty</option>
-		<option value = "energetic">energetic</option>
-		<option value = "sleepy">sleepy</option>
-		<option value = "fast">fast</option>
-		<option value = "spiky">spiky</option>
-		<option value = "funny">funny</option>
-		<option value = "dumb">dumb</option>
-		<option value = "hungry">hungry</option>
+	<select name = "trait">
+	<c:forEach items="${listAnimal}" var="animal">
+		<option value = "">
+		<c:if test="${animal.id eq selectedThisTrait}">selected="selected"</c:if>
+                    >
+                    ${category.name}
+		</option>
+	</c:forEach>
 	</select>
 	<br></br>
 	
