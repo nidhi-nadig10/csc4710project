@@ -43,10 +43,6 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-//Animal animal = new Animal();
-//int animal_id = animal.getAnimalID();
-
-//String query = "SELECT * FROM ANIMALS WHERE id = + animal_id +;";
 String query = "SELECT * FROM ANIMALS;";
 
 ResultSet rs = st.executeQuery(query);
@@ -68,30 +64,11 @@ while(rs.next()){
 <% 
 }
 
- query = "SELECT * FROM animals;";
- rs = st.executeQuery(query);
 %>
-	<form action= "review.jsp" method= "post" style = "float:center">
-	<h3>Choose a Trait</h3>
-	<select id = "selectedAnimal" name = selectedAnimal>
-		<% 
-		while (rs.next())
-			{ 
-				String value = rs.getString("name");
-			
-			%>
-			
-			<option> <%= value%> </option>
-				
-			<% }
-			
-			%>
-     </select>
-	<br></br>
 	
-	<button type="submit" value="Review Animal" class="buttonTwo">Review Animal</button>
-	</form>
-      
+    <form action="review.jsp" method="post">
+		<button type="submit" value="Review An Animal" class="buttonTwo">Review an Animal</button> 
+	</form>  
 
 	
 	<form action="view_reviews.jsp" method="post">

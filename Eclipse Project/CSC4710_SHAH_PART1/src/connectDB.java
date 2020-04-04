@@ -128,6 +128,7 @@ public class connectDB extends HttpServlet {
 					"   price float,\r\n" + 
 					"   traits varchar(255),\r\n" + 
 					" review varchar(255),\r\n" +
+					" rating varchar(255),\r\n" +
 					" username varchar(255),\r\n" +
 					"   PRIMARY KEY(id)\r\n" + 
 					");\r\n" + 

@@ -34,6 +34,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
+
 Class.forName("com.mysql.jdbc.Driver");
 java.sql.Connection connect = DriverManager
   .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
