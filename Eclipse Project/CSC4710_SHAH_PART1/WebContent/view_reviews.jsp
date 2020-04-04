@@ -53,7 +53,7 @@ while(rs.next()){
     <td><%=rs.getString("animalname") %></td>
      <td><%=rs.getString("rating") %></td>
       <td><%=rs.getString("review") %></td>
-       <td><%=rs.getString("username") %></td>
+       <td><a href="view_favorites.jsp"><%=rs.getString("username") %></a></td>
    
     </tr>
     </table>
