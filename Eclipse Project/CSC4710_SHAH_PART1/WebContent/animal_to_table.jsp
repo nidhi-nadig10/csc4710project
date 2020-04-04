@@ -63,8 +63,8 @@
 					} 
 					else
 					{
-						String registerUserSQL = "INSERT INTO animals(name, species, breeder, birthdate, price, traits, username)\r\n" + 
-								"VALUES('"+name+"','"+species+"','"+user+"','"+birthdate+"','"+price+"','"+traits+"', '"+user+"');";
+						String registerUserSQL = "INSERT INTO animals(name, species,birthdate, price, traits, username)\r\n" + 
+								"VALUES('"+name+"','"+species+"','"+birthdate+"','"+price+"','"+traits+"', '"+user+"');";
 							PreparedStatement preparedStatement;
 							preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
 							preparedStatement.executeUpdate();
