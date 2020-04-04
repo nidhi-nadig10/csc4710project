@@ -93,28 +93,30 @@ ResultSet rs2 = st2.executeQuery(query2);
 %>
 
 
-<form action= "add_breeder.jsp" method= "post" style ="float:left">
-	<h3>Add Fav Breeders</h3>
-	<select name = "breeder">
+<form action= "find_animals.jsp" method= "post" style ="float:left">
+	<h3>Add Fav Breeder</h3>
+	<select name = "trait">
 		<option></option>
-		<option value = "rootuser">rootuser</option>
-		<option value = "Darpan">Darpan</option>
-		<option value = "Nidhi">Nidhi</option>
-		<option value = "Aubrey">Aubrey</option>
-		<option value = "Corey">Corey</option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
 	</select>
 	<br></br>
 	
 	<button type="submit" value="Find Animals" class="buttonTwo">Add Fav Breeder</button>
 	</form>
 	
-	<form action= "remove_breeder.jsp" method= "post" style ="float:left">
-	<h3>Remove Fav Breeders</h3>
+	<form action= "find_animals.jsp" method= "post" style ="float:left">
+	<h3>Remove Fav Breeder</h3>
 	<select name = "trait">
 		<option></option>
-		<option value = "Aubrey">Aubrey</option>
-		<option value = "Darpan">Darpan</option>
-		<option value = "Nidhi">Nidhi</option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
 	</select>
 	<br></br>
 	
@@ -122,13 +124,15 @@ ResultSet rs2 = st2.executeQuery(query2);
 	</form>
 	
 	
-	<form action= "add_fav_animal.jsp" method= "post" style ="float:right">
+	<form action= "find_animals.jsp" method= "post" style ="float:right">
 	<h3>Remove Fav Animal</h3>
 	<select name = "trait">
 		<option></option>
-		<option value = "Fido">Fido</option>
-		<option value = "Remy">Remy</option>
-		<option value = "Baloo">Baloo</option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
 	</select>
 	<br></br>
 	
@@ -136,20 +140,15 @@ ResultSet rs2 = st2.executeQuery(query2);
 	</form>
 	
 	
-<form action= "remove_animal.jsp" method= "post" style ="float:right">
+<form action= "find_animals.jsp" method= "post" style ="float:right">
 	<h3>Add Fav Animal</h3>
 	<select name = "trait">
 		<option></option>
-		<option value = "Fido">Fido</option>
-		<option value = "Remy">Remy</option>
-		<option value = "Peppa">Peppa</option>
-		<option value = "Stuart Little">Stuart Little</option>
-		<option value = "Cat in the Hat">Cat in the Hat</option>
-		<option value = "Sher Khan">Sher Khan</option>
-		<option value = "Baloo">Baloo</option>
-		<option value = "Bhageera">Bhageera</option>
-		<option value = "Sonic">Sonic</option>
-		<option value = "Scooby">Scooby</option>
+		<option value = "adventurous">Adventurous</option>
+		<option value = "happy">Happy</option>
+		<option value = "slobbery">Slobbery</option>
+		<option value = "wiggly">Wiggly</option>
+		<option value = "dirty">Dirty</option>
 	</select>
 	<br></br>
 	

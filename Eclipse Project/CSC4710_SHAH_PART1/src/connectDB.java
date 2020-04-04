@@ -123,7 +123,6 @@ public class connectDB extends HttpServlet {
 					"   id INT NOT NULL auto_increment, \r\n" + 
 					"   name varchar(255), 	\r\n" + 
 					"   species varchar(255),\r\n" + 
-					"   breeder varchar(255),\r\n" +
 					"   birthdate date,\r\n" + 
 					"   price float,\r\n" + 
 					"   traits varchar(255),\r\n" + 
@@ -136,17 +135,17 @@ public class connectDB extends HttpServlet {
 				preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 				preparedStatement.executeUpdate();
 	    
-				dataInsertionSQL = "insert into ANIMALS (name,species,breeder, birthdate,price,traits)\r\n" + 
-				"values('Fido','Dog','rootuser','2019/10/23','200','happy,slobbery,wiggly'),\r\n" + 
-				"('Remy','Rat','Darpan','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
-				"('Peppa','Pig','Nidhi','1999/08/10','1000000','sexy,flawless'),\r\n" + 
-				"('Stuart Little','Darpan','Mouse','2004/03/27','5000','adventurous, wiggly'),\r\n" + 
-				"('Cat in the Hat','Cat','Aubrey','2000/08/16','200','adventurous,fluffy'),\r\n" + 
-				"('Sher Khan','Tiger','Aubrey','1999/05/11','1000','angry,feisty'),\r\n" + 
-				"('Baloo','Bear','Nidhi','2002/01/27','8000','energetic, sleepy'),\r\n" +
-				"('Bagheera','Panther','Nidhi','2005/10/20','6000','fast'),\r\n" +
-				"('Sonic','Hedgehog','Darpan','2008/02/20','9000','fast,spiky'),\r\n" +
-				"('Scooby','Dog','Darpan','2003/11/11','125000','funny, dumb, hungry')";
+				dataInsertionSQL = "insert into ANIMALS (name,species,birthdate,price,traits)\r\n" + 
+				"values('Fido','Dog','2019/10/23','200','happy,slobbery,wiggly'),\r\n" + 
+				"('Remy','Rat','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
+				"('Peppa','Pig','1999/08/10','1000000','sexy,flawless'),\r\n" + 
+				"('Stuart Little','Mouse','2004/03/27','5000','adventurous, wiggly'),\r\n" + 
+				"('Cat in the Hat','Cat','2000/08/16','200','adventurous,fluffy'),\r\n" + 
+				"('Sher Khan','Tiger','1999/05/11','1000','angry,feisty'),\r\n" + 
+				"('Baloo','Bear','2002/01/27','8000','energetic, sleepy'),\r\n" +
+				"('Bagheera','Panther','2005/10/20','6000','fast'),\r\n" +
+				"('Sonic','Hedgehog','2008/02/20','9000','fast,spiky'),\r\n" +
+				"('Scooby','Dog','2003/11/11','125000','funny, dumb, hungry')";
 				
 				preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 				preparedStatement.executeUpdate();
