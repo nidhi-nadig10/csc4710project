@@ -50,11 +50,14 @@
 					
 					if(count==5)
 					{
+						out.println("CANNOT ADD ANIMAL: LIMIT = 5");
 						%>
 						<head>  
 						<title>CANNOT ADD ANIMAL LIMIT = 5</title>  
 						<meta http-equiv="refresh"content="2; url = user_adoptions.jsp" /> 
 						</head>  
+						
+						
 				
 			<%	
 					} 
@@ -65,7 +68,7 @@
 							PreparedStatement preparedStatement;
 							preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
 							preparedStatement.executeUpdate();
-							out.println("Added to animals table");
+							out.println("Added to animals table. Redirecting to added animals");
 						
 								%>
 								<head>  

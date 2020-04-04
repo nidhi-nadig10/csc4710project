@@ -42,10 +42,25 @@
 			{
 				if(passw.equals(rs.getString("pw")))
 				{	
-					
+					String dropTablesSQL = "DROP TABLE IF EXISTS LOGGEDINUSER;";
+					PreparedStatement preparedStatement;
+			    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+			    	preparedStatement.executeUpdate();
+			    	System.out.println("Tables dropped succesfully.");
+			    	
+			    	
+					String tableCreationSQL = " CREATE TABLE LOGGEDINUSER (\r\n" + 
+							"   username varchar(255), 	\r\n" + 
+						
+							"   PRIMARY KEY(username)\r\n" + 
+							");\r\n" + 
+							"";
+						
+						preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+						preparedStatement.executeUpdate();
 					
 					String query2 = "INSERT INTO loggedinuser (username) VALUES ('"+user+"');";
-					PreparedStatement preparedStatement;
+					
 					preparedStatement = (PreparedStatement) connect.prepareStatement(query2);
 					preparedStatement.executeUpdate();
 					 
