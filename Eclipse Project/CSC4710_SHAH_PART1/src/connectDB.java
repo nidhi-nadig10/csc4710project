@@ -138,15 +138,15 @@ public class connectDB extends HttpServlet {
 	    
 				dataInsertionSQL = "insert into ANIMALS (name,species,username, birthdate,price,traits)\r\n" + 
 				"values('Fido','Dog','root','2019/10/23','200','happy,slobbery,wiggly'),\r\n" + 
-				"('Remy','Rat','Darpan','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
-				"('Peppa','Pig','Nidhi','1999/08/10','1000000','sexy,flawless'),\r\n" + 
-				"('Stuart Little','Mouse','Darpan','2004/03/27','5000','adventurous, wiggly'),\r\n" + 
+				"('Remy','Rat','darpanshah','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
+				"('Peppa','Pig','nidhinadig','1999/08/10','1000000','sexy,flawless'),\r\n" + 
+				"('Stuart Little','Mouse','darpanshah','2004/03/27','5000','adventurous, wiggly'),\r\n" + 
 				"('Cat in the Hat','Cat','Corey','2000/08/16','200','adventurous,fluffy'),\r\n" + 
-				"('Sher Khan','Tiger','Aubrey','1999/05/11','1000','angry,feisty'),\r\n" + 
-				"('Baloo','Bear','Aubrey','2002/01/27','8000','energetic, sleepy'),\r\n" +
-				"('Bagheera','Panther','Aubrey','2005/10/20','6000','fast'),\r\n" +
-				"('Sonic','Hedgehog','Nidhi','2008/02/20','9000','fast,spiky'),\r\n" +
-				"('Scooby','Dog','Darpan','2003/11/11','125000','funny, dumb, hungry')";
+				"('Sher Khan','Tiger','champagnepapi','1999/05/11','1000','angry,feisty'),\r\n" + 
+				"('Baloo','Bear','champagnepapi','2002/01/27','8000','energetic, sleepy'),\r\n" +
+				"('Bagheera','Panther','champagnepapi','2005/10/20','6000','fast'),\r\n" +
+				"('Sonic','Hedgehog','nidhinadig','2008/02/20','9000','fast,spiky'),\r\n" +
+				"('Scooby','Dog','darpanshah','2003/11/11','125000','funny, dumb, hungry')";
 				
 				preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 				preparedStatement.executeUpdate();

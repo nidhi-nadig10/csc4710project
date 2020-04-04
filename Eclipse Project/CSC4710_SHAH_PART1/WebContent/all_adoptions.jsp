@@ -54,7 +54,7 @@ while(rs.next()){
 	<tr>
     <td><%=rs.getString("name") %></td>
     <td><%=rs.getString("species") %></td>
-    <td><a href="view_favorites.jsp"><%=rs.getString("breeder") %></a></td>
+    <td><a href="view_favorites.jsp"><%=rs.getString("username") %></a></td>
     <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
