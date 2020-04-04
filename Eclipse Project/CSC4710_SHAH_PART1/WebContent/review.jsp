@@ -16,16 +16,47 @@
 		</ul>
 	</nav>
 	
-<%String animal = request.getParameter("selectedAnimal"); %>
+	<%@ page import ="java.sql.*" %>
+	<%@ page import = "javax.sql.*" %>	
+	
+<%
 
-Reviewing <%out.println(animal);%>
+
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection connect = DriverManager
+  .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
+      + "user=john&password=pass1234");
+Statement st = connect.createStatement();
+
+String query = "SELECT * FROM ANIMALS;";
+
+ResultSet rs = st.executeQuery(query);
+
+%>
+
 
 <div class="center">
 <div class="container">
 	<h1>Write A Review</h1>
-	<form action= "save_review.jsp" method= "post">
+	
+	<form action= "save_review.jsp" method= "post" style = "float:center">
+	<h3>Choose an Animal</h3>
+	<select name = "animalselection">
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("name");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+     </select>
+	<br></br>
 	<h3>Choose a Rating</h3>
-	<h2 id = ratedAnimal name><%out.println(animal); %></h2>
 	<select name = "rating">
 		<option></option>
 		<option value = "Totes Adorbs">Totes Adorbs</option>
@@ -36,8 +67,19 @@ Reviewing <%out.println(animal);%>
 	<br></br>
 	<h3>Enter a Short Review</h3>
 	<textarea rows = "3" name = "review"></textarea>
-	<input type="submit"/>
+	<br></br>
+	<button type="submit" value="Review Animal" class="buttonTwo">Review Animal</button>
+	
 	</form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </div>
 </div>
 </body>

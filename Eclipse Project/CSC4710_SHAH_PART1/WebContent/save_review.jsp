@@ -18,7 +18,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
-	String animal = request.getParameter("animal");
+	String animal = request.getParameter("animalselection");
 	String rating= request.getParameter("rating");
 	String review= request.getParameter("review");
 	
@@ -34,8 +34,8 @@
 	while(rs.next())
 	{	String user = rs.getString("username");
 	
-	String registerUserSQL = "INSERT INTO REVIEWS(rating, review, username)\r\n" + 
-			"VALUES('"+rating+"','"+review+"','"+user+"')";
+	String registerUserSQL = "INSERT INTO REVIEWS(animalname,rating, review, username)\r\n" + 
+			"VALUES('"+animal+"','"+rating+"','"+review+"','"+user+"')";
 	PreparedStatement preparedStatement;
 	preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
 	preparedStatement.executeUpdate();
@@ -44,7 +44,9 @@
 	
 	
 	out.println("Thank you for rating!");
-	out.println(animal);
+	out.println("You rated: " + animal);
+
+	
 %>
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>
