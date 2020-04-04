@@ -54,7 +54,7 @@ while(rs.next()){
      <td><%=rs.getString("rating") %></td>
       <td><%=rs.getString("review") %></td>
        <td><%=rs.getString("username") %></td>
-    <td><form action = "remove_breeder"><input type="submit" value="Remove Breeder"> </form></td>
+   
     </tr>
     </table>
     

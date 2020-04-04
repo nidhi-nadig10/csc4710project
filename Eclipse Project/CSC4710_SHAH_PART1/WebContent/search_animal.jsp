@@ -34,15 +34,7 @@
 		String query = "SELECT * FROM animals;";
 		ResultSet rs = st.executeQuery(query);
 		
-		/* 
-		List <String> traits = new ArrayList <String>();
 		
-		while (rs.next())
-		{
-			String s = rs.getString("traits");
-			traits.add(s);
-		} 
-		*/
 		
 		%>
 	
@@ -54,18 +46,12 @@
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Trait</h3>
 	<select id = "selectedTrait" name = selectedTrait>
-		<% 
-		while (rs.next())
-			{ 
-				String value = rs.getString("traits");
-			
-			%>
-			
-			<option> <%= value%> </option>
-				
-			<% }
-			
-			%>
+		<option>happy</option>
+		<option>slobbery</option>
+		<option>wiggly</option>
+		<option>adventurous</option>
+		<option>angry</option>
+		<option>feisty</option>
      </select>
 	<br></br>
 	
