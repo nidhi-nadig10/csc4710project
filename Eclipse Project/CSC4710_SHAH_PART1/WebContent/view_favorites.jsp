@@ -36,7 +36,45 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-String query = "SELECT * FROM FAVBREEDERS;";
+
+String favBreeder = request.getParameter("addBreeder");
+String favAnimal = request.getParameter("addAnimal");
+String removeBreeder = request.getParameter("removeBreeder");
+String removeAnimal = request.getParameter("removeAnimal");
+
+String query;
+PreparedStatement preparedStatement;
+
+if(favBreeder!=null)
+{
+	query = "INSERT INTO FAVBREEDERS(favUser)\r\n" + "VALUES('"+favBreeder+"') ON DUPLICATE KEY UPDATE id=id";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	preparedStatement.executeUpdate();
+}
+
+if(favAnimal!=null)
+{
+	query = "INSERT IGNORE INTO FAVANIMALS(favAnimal)\r\n" + "VALUES('"+favAnimal+"')";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	preparedStatement.executeUpdate();
+}
+
+if(removeBreeder!=null)
+{
+	query = "DELETE FROM FAVBREEDERS WHERE favUser='"+removeBreeder+"';";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	preparedStatement.executeUpdate();
+}
+
+if(removeAnimal!=null)
+{
+	query = "DELETE FROM FAVANIMALS WHERE favAnimal='"+removeAnimal+"';";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	preparedStatement.executeUpdate();
+}
+
+
+query = "SELECT * FROM FAVBREEDERS;";
 
 ResultSet rs = st.executeQuery(query);
 
@@ -63,76 +101,103 @@ while(rs.next()){
 		</tr>
 	</table>
 	
-<%@ page import ="java.sql.*" %>
-<%@ page import = "javax.sql.*" %>
+
+<% 
+ query = "SELECT * FROM FAVANIMALS;";
+
+ rs = st.executeQuery(query);
+ %>
+
+
 <%
-Class.forName("com.mysql.jdbc.Driver");
-java.sql.Connection connect2 = DriverManager
-  .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
-      + "user=john&password=pass1234");
-Statement st2 = connect2.createStatement();
-
-String query2 = "SELECT * FROM FAVANIMALS;";
-
-ResultSet rs2 = st2.executeQuery(query2);
-
-
-	
-
  
-	while(rs2.next()){
+	while(rs.next()){
 %>	
 	<table class=table>
 	<tr>
-    <td><%=rs2.getString("favAnimal") %></td>
+    <td><%=rs.getString("favAnimal") %></td>
     </tr>
     </table>
     
 <% 
 }
+	
+	query = "SELECT * FROM USERS;";
+	rs = st.executeQuery(query);
 %>
 
 
-<form action= "find_animals.jsp" method= "post" style ="float:left">
+<form action= "view_favorites.jsp" method= "post" style ="float:left">
 	<h3>Add Fav Breeder</h3>
-	<select name = "trait">
+	<select name = "addBreeder">
 		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("username");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
 	</select>
 	<br></br>
 	
 	<button type="submit" value="Find Animals" class="buttonTwo">Add Fav Breeder</button>
 	</form>
 	
-	<form action= "find_animals.jsp" method= "post" style ="float:left">
+	<%
+	query = "SELECT * FROM USERS;";
+	rs = st.executeQuery(query); 
+	%>
+	
+	<form action= "view_favorites.jsp" method= "post" style ="float:left">
 	<h3>Remove Fav Breeder</h3>
-	<select name = "trait">
+	<select name = "removeBreeder">
 		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("username");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+
 	</select>
 	<br></br>
 	
 	<button type="submit" value="Find Animals" class="buttonTwo">Remove Fav Breeder</button>
 	</form>
 	
+	<% 
+	query = "SELECT * FROM ANIMALS;";
+	rs = st.executeQuery(query); 
 	
-	<form action= "find_animals.jsp" method= "post" style ="float:right">
+	%>
+	<form action= "view_favorites.jsp" method= "post" style ="float:right">
 	<h3>Remove Fav Animal</h3>
-	<select name = "trait">
+	<select name = "removeAnimal">
 		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("name");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
 	</select>
 	<br></br>
 	
@@ -140,15 +205,27 @@ ResultSet rs2 = st2.executeQuery(query2);
 	</form>
 	
 	
-<form action= "find_animals.jsp" method= "post" style ="float:right">
+<%
+	query = "SELECT * FROM ANIMALS;";
+	rs = st.executeQuery(query); 
+	%>	
+	
+<form action= "view_favorites.jsp" method= "post" style ="float:right">
 	<h3>Add Fav Animal</h3>
-	<select name = "trait">
+	<select name = "addAnimal">
 		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("name");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
 	</select>
 	<br></br>
 	

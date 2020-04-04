@@ -221,9 +221,9 @@ public class connectDB extends HttpServlet {
 					preparedStatement.executeUpdate();
 					
 					dataInsertionSQL = "insert into FAVBREEDERS (favUser)\r\n" + 
-							"values('Aubrey'),\r\n" + 
-							"('Darpan'),\r\n" + 
-							"('Nidhi')";
+							"values('champagnepapi'),\r\n" + 
+							"('darpanshah'),\r\n" + 
+							"('nidhinadig')";
 							
 							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 							preparedStatement.executeUpdate();
