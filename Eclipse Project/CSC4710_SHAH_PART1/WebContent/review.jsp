@@ -25,7 +25,7 @@ Reviewing <%out.println(animal);%>
 	<h1>Write A Review</h1>
 	<form action= "save_review.jsp" method= "post">
 	<h3>Choose a Rating</h3>
-	<h2 id = ratedAnimal name><%out.println(animal); %></h2>
+	<h2 id = ratedAnimal><%out.println(animal); %></h2>
 	<select name = "rating">
 		<option></option>
 		<option value = "Totes Adorbs">Totes Adorbs</option>

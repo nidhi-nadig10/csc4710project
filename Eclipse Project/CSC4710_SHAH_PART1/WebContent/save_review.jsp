@@ -18,7 +18,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
-	String animal = request.getParameter("animal");
+	String animal= request.getParameter("animal");
 	String rating= request.getParameter("rating");
 	String review= request.getParameter("review");
 	
@@ -40,7 +40,6 @@
 	preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
 	preparedStatement.executeUpdate();
 	}
-	
 	
 	
 	out.println("Thank you for rating!");

@@ -27,10 +27,9 @@
 		<th>Animal Name</th>
 		<th>Species</th>
 		<th>Birth Date</th>
+		<th>Breeder</th>
 		<th>Price</th>
 		<th>Traits</th>
-		<th>Review</th>
-		<th>View All Reviews</th>
 		</tr>
 	</table>
 	
@@ -59,6 +58,7 @@ while(rs.next()){
 	<tr>
     <td><%=rs.getString("name") %></td>
     <td><%=rs.getString("species") %></td>
+    <td><a href="view_favorites.jsp"><%=rs.getString("breeder") %></a></td>
     <td><%=rs.getString("birthdate") %></td>
     <td><%=rs.getInt("price") %></td>
     <td><%=rs.getString("traits") %></td>
