@@ -17,7 +17,7 @@ public class AnimalDAO {
 		List<Animal> listAnimal = new ArrayList<>();
 		
 		try (Connection connection = DriverManager.getConnection(databaseURL, user, password)) {
-			String sql = "SELECT * FROM animals ORDER BY traits";
+			String sql = "SELECT * FROM animals where traits = ?";
 			
 			Statement st = connection.createStatement();
 			ResultSet rs = st.executeQuery(sql);

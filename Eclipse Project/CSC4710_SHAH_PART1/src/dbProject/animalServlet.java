@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/list")
+@WebServlet("/animalServlet")
 public class animalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        listAnimal(request, response);
+		listAnimal(request, response);
     }
     
     private void listAnimal(HttpServletRequest request, HttpServletResponse response)
@@ -36,13 +36,14 @@ public class animalServlet extends HttpServlet {
             e.printStackTrace();
             throw new ServletException(e);
         }
+       
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     	throws ServletException, IOException {
-    		int animalId = Integer.parseInt(request.getParameter("traits"));
+    		String postTrait = request.getParameter("selectTrait");
     		
-    		request.setAttribute("selectedThisTrait", animalId);
+    		request.setAttribute("selectTrait", postTrait);
     		
     		listAnimal(request, response);
     	}

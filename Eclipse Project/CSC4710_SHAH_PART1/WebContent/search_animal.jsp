@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="woof.jsp">
 </head>
 
-<body>
+<body onload="">
 	<nav id="navigation">
 		<ul>
 			<li><a href="show_all.jsp">Home</a></li>
@@ -28,11 +28,11 @@
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Trait</h3>
 	<select name = "trait">
-	<c:forEach items="${listAnimal}" var="animal">
+	<c:forEach items="${listAnimal}" var="selectTrait">
 		<option value = "">
-		<c:if test="${animal.id eq selectedThisTrait}">selected="selected"</c:if>
+		<c:if test="${selectTrait.traits eq selectTrait}">selected="selected"</c:if>
                     >
-                    ${category.name}
+                    ${selectTrait.trait}
 		</option>
 	</c:forEach>
 	</select>

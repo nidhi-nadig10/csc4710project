@@ -34,8 +34,6 @@
 	</table>
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
-<%@ page import = "packageDB.User" %>
-<%@ page import = "packageDB.Animal" %>
 
 <%
 Class.forName("com.mysql.jdbc.Driver");
@@ -43,9 +41,6 @@ java.sql.Connection connect = DriverManager
   .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
-
-Animal animal = new Animal();
-int animal_id = animal.getAnimalID();
 
 
 String query = "SELECT * FROM loggedinuser;";
