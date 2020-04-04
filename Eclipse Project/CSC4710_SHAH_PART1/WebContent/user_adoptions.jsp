@@ -12,7 +12,7 @@
 	<nav id="navigation">
 		<ul>
 			<li><a href="show_all.jsp">Home</a></li>
-			<li><a href="show_all.jsp">Show All Listings</a></li>
+			<li><a href="all_adoptions.jsp">Show All Listings</a></li>
 			<li class="current-menu-item"><a href = "user_adoptions.jsp">Show My Listings</a></li>
 			<li><a href="add_animal.jsp">Post an Animal</a></li>
 			<li><a href="view_favorites.jsp">View Favorites</a></li>

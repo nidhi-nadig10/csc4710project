@@ -66,6 +66,16 @@
 	<% 
 	}
 	%>	
+	
+	  <form action="review.jsp" method="post">
+		<button type="submit" value="Review An Animal" class="buttonTwo">Review an Animal</button> 
+	</form>  
+
+	
+	<form action="view_reviews.jsp" method="post">
+		<button type="submit" value="View All Reviews" class="buttonTwo">View All Reviews</button> 
+	</form>
+	
 	</div>
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>

@@ -123,7 +123,6 @@ public class connectDB extends HttpServlet {
 					"   id INT NOT NULL auto_increment, \r\n" + 
 					"   name varchar(255), 	\r\n" + 
 					"   species varchar(255),\r\n" + 
-					"   breeder varchar(255),\r\n" + 
 					"   birthdate date,\r\n" + 
 					"   price float,\r\n" + 
 					"   traits varchar(255),\r\n" + 
@@ -137,7 +136,7 @@ public class connectDB extends HttpServlet {
 				preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 				preparedStatement.executeUpdate();
 	    
-				dataInsertionSQL = "insert into ANIMALS (name,species,breeder, birthdate,price,traits)\r\n" + 
+				dataInsertionSQL = "insert into ANIMALS (name,species,username, birthdate,price,traits)\r\n" + 
 				"values('Fido','Dog','root','2019/10/23','200','happy,slobbery,wiggly'),\r\n" + 
 				"('Remy','Rat','Darpan','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
 				"('Peppa','Pig','Nidhi','1999/08/10','1000000','sexy,flawless'),\r\n" + 

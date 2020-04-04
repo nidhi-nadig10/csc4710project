@@ -150,7 +150,7 @@ while(rs.next()){
 	</form>
 	
 	<%
-	query = "SELECT * FROM USERS;";
+	query = "SELECT * FROM FAVBREEDERS;";
 	rs = st.executeQuery(query); 
 	%>
 	
@@ -161,7 +161,7 @@ while(rs.next()){
 		<% 
 		while (rs.next())
 			{ 
-				String value = rs.getString("username");
+				String value = rs.getString("favUser");
 			
 			%>
 			
@@ -178,7 +178,7 @@ while(rs.next()){
 	</form>
 	
 	<% 
-	query = "SELECT * FROM ANIMALS;";
+	query = "SELECT * FROM FAVANIMALS;";
 	rs = st.executeQuery(query); 
 	
 	%>
@@ -189,7 +189,7 @@ while(rs.next()){
 		<% 
 		while (rs.next())
 			{ 
-				String value = rs.getString("name");
+				String value = rs.getString("favAnimal");
 			
 			%>
 			

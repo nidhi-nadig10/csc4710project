@@ -46,6 +46,7 @@
 	<form action= "find_animals.jsp" method= "post">
 	<h3>Choose a Trait</h3>
 	<select id = "selectedTrait" name = selectedTrait>
+		<option></option>
 		<option>adventurous</option>
 		<option>angry</option>
 		<option>energetic</option>
