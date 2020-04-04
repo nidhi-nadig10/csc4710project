@@ -26,8 +26,8 @@
 		<tr>
 		<th>Animal Name</th>
 		<th>Species</th>
-		<th>Birth Date</th>
 		<th>Breeder</th>
+		<th>Birth Date</th>
 		<th>Price</th>
 		<th>Traits</th>
 		</tr>

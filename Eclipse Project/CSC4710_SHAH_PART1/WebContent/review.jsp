@@ -11,8 +11,11 @@
 <body>
 	<nav id="navigation">
 		<ul>
-			<li><a href="all_adoptions.jsp">Show All Listings</a></li>
-			<li><a href = "user_adoptions.jsp">Show My Listings</a></li>
+			<li><a href="show_all.jsp">Home</a></li>
+			<li><a href="add_animal.jsp">Post an Animal</a></li>
+			<li><a href="view_favorites.jsp">View Favorites</a></li>
+			<li><a href="search_animal.jsp">Search Animals</a></li>
+			<li><a href="list_by_price.jsp">List By Price</a></li>
 		</ul>
 	</nav>
 	
@@ -57,7 +60,6 @@ ResultSet rs = st.executeQuery(query);
      </select>
 	<br></br>
 	<h3>Choose a Rating</h3>
-	<h2 id = ratedAnimal><%out.println(animal); %></h2>
 	<select name = "rating">
 		<option></option>
 		<option value = "Totes Adorbs">Totes Adorbs</option>
