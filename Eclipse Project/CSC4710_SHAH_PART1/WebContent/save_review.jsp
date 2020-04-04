@@ -18,6 +18,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
+	String animal = request.getParameter("animal");
 	String rating= request.getParameter("rating");
 	String review= request.getParameter("review");
 	
@@ -43,6 +44,7 @@
 	
 	
 	out.println("Thank you for rating!");
+	out.println(animal);
 %>
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>

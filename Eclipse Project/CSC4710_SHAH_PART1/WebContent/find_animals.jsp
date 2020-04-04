@@ -21,7 +21,7 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
-	String trait= request.getParameter("trait");
+	String trait= request.getParameter("selectedTrait");
 		
 	Class.forName("com.mysql.jdbc.Driver");
 	java.sql.Connection connect = DriverManager

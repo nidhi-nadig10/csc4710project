@@ -67,22 +67,32 @@ while(rs.next()){
     
 <% 
 }
+
+ query = "SELECT * FROM animals;";
+ rs = st.executeQuery(query);
 %>
-      
-    <form action= "review.jsp" method= "post" style ="float:center">
-	<h3>Review Animal</h3>
-	<select name = "trait">
-		<option></option>
-		<option value = "adventurous">Adventurous</option>
-		<option value = "happy">Happy</option>
-		<option value = "slobbery">Slobbery</option>
-		<option value = "wiggly">Wiggly</option>
-		<option value = "dirty">Dirty</option>
-	</select>
+	<form action= "review.jsp" method= "post" style = "float:center">
+	<h3>Choose a Trait</h3>
+	<select id = "selectedAnimal" name = selectedAnimal>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("name");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+     </select>
 	<br></br>
 	
 	<button type="submit" value="Review Animal" class="buttonTwo">Review Animal</button>
 	</form>
+      
+
 	
 	<form action="view_reviews.jsp" method="post">
 		<button type="submit" value="View All Reviews" class="buttonTwo">View All Reviews</button> 
