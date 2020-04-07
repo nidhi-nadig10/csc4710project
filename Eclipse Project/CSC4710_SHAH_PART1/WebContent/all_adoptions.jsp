@@ -66,13 +66,17 @@ while(rs.next()){
 
 %>
 	
-    <form action="review.jsp" method="post">
+    <form action="review.jsp" method="post" style = "float: left">
 		<button type="submit" value="Review An Animal" class="buttonTwo">Review an Animal</button> 
 	</form>  
 
 	
-	<form action="view_reviews.jsp" method="post">
+	<form action="view_reviews.jsp" method="post" style = "float: right">
 		<button type="submit" value="View All Reviews" class="buttonTwo">View All Reviews</button> 
+	</form>
+	
+	<form action="adoption_crate.jsp" method="post" style = "float: center">
+		<button type="submit" value="Adopt Animal" class="buttonTwo"><b>ADOPT ANIMAL</b></button> 
 	</form>
 	        
    

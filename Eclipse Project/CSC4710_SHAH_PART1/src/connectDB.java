@@ -255,6 +255,28 @@ public class connectDB extends HttpServlet {
 							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 							preparedStatement.executeUpdate();
 							System.out.println("Favorite Animals created succesfully.");
+							
+							
+							//ADOPTION CRATE TABLE
+							connect_func();
+					    	dropTablesSQL = "DROP TABLE IF EXISTS ADOPTIONCRATE;";
+					    	preparedStatement = (PreparedStatement) connect.prepareStatement(dropTablesSQL);
+					    	preparedStatement.executeUpdate();
+					    	System.out.println("Favorite Animals dropped succesfully.");
+					    	
+					    	
+							 tableCreationSQL = " CREATE TABLE ADOPTIONCRATE (\r\n" + 
+									"   id INT NOT NULL auto_increment, \r\n" +
+									"   name varchar(255), 	\r\n" + 	
+									"   species varchar(255), 	\r\n" +
+									"   price float, 	\r\n" +
+									"   PRIMARY KEY(id)\r\n" + 
+									");\r\n" + 
+									"";
+								connect_func();   
+								preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
+								preparedStatement.executeUpdate();
+								System.out.println("Adoption Crate table created successfully.");
 				
 				connect.close();
 			
