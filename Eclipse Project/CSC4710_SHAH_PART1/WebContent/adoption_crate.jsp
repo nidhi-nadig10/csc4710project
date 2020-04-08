@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Adoption Agency | Favorites</title>
+	<title>Adoption Agency | Adoption Crate</title>
 	<link rel="stylesheet" type="text/css" href="woof.jsp">
 </head>
 <body>

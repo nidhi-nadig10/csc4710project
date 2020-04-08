@@ -124,7 +124,7 @@ p {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   background-color: #FFEEE5;
   width: 100%;
-  text-align: left;
+  text-align: center;
   border-collapse: collapse;
   table-layout: fixed;
   word-wrap: break-word;
