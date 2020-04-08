@@ -7,7 +7,6 @@
 	<title>Adoption Agency | Part 3 Menu</title>
 	<link rel="stylesheet" type="text/css" href="woof.jsp">
 </head>
-
 <body>
 	<nav id="navigation">
 		<ul>

@@ -1,0 +1,104 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Adoption Agency | Most Reviews</title>
+	<link rel="stylesheet" type="text/css" href="woof.jsp">
+</head>
+<body>
+	<nav id="navigation">
+		<ul>
+			<li><a href="show_all.jsp">Home</a></li>
+			<li><a href="part3menu.jsp">Part 3 Menu</a></li>
+		</ul>
+	</nav>
+	
+	<main>
+<%@ page import ="java.sql.*" %>
+<%@ page import = "javax.sql.*" %>
+<%
+Class.forName("com.mysql.jdbc.Driver");
+java.sql.Connection connect = DriverManager
+  .getConnection("jdbc:mysql://127.0.0.1:3306/dogAdoptionDB?"
+      + "user=john&password=pass1234");
+Statement st = connect.createStatement();
+
+String animal1 = request.getParameter("animal1");
+String animal2 = request.getParameter("animal2");
+
+String query;
+PreparedStatement preparedStatement;
+%>
+	
+	<div class="center">
+	<h1>Users Who Posted 2+ Animals of the Same Species</h1>
+	
+	<table class="table">
+		<tr>
+			<th>User Name</th>
+		</tr>
+	</table>
+	
+<%
+if(animal1 != null && animal2 != null) {
+	query = "SELECT * FROM ANIMAL WHERE species = " + '"'+ animal1+'"' + " or species = " + '"'+ animal2+'"' + ";";
+}
+
+%>
+
+<%
+	query = "SELECT * FROM ANIMALS;";
+	ResultSet rs = st.executeQuery(query);
+%>
+	
+	<form action="part3page1.jsp" method= "post" style ="float:left">
+		<h3>Species 1</h3>
+		<select name= "animal1">
+		<option></option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("species");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+		</select>
+	</form>
+	
+	<%
+	query = "SELECT * FROM ANIMALS;";
+	rs = st.executeQuery(query); 
+	%>
+	
+	<form action="part3page1.jsp" method= "post" style ="float:right">
+		<h3>Species 2</h3>
+		<select>
+		<option></option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("species");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+		</select>
+		<br></br>
+	</form>
+			<button type="submit" value="Submit" class="buttonTwo" style ="float:center">Submit</button>
+	</div>
+	</main>
+
+</body>
+</html>

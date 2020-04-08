@@ -54,8 +54,6 @@ while(rs.next())
 
 rs = st.executeQuery(query);
 
-
-
 while(rs.next()){
 %>	
 	<table class=table>
