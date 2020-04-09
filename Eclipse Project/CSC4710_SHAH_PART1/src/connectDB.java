@@ -202,6 +202,20 @@ public class connectDB extends HttpServlet {
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
 					
+				dataInsertionSQL = "insert into REVIEWS (animalname, rating, review, username)\r\n" + 
+						"VALUES('Peppa','Adorbs','super fun to play with','ctwoof'),\r\n" + 
+						"('Sher Khan','Totes Adorbs','Joe Exotics favorite gift','nidhinadig'),\r\n" + 
+						"('Stuart Little','Cray','lost him in the vents after 2 days','champagnepapi'),\r\n" + 
+						"('Remy','Adorbs','makes great pasta','darpanshah'),\r\n" + 
+						"('Sonic','Cray-Cray','too hard to keep track of','nidhinadig'),\r\n" + 
+						"('Bagheera','Adorbs','super cuddly','darpanshah'),\r\n" + 
+						"('Baloo','Totes Adorbs','super cuddly','darpanshah'),\r\n" +
+						"('Scooby','Cray','keeps running away','ctwoof')";
+						
+						preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
+						preparedStatement.executeUpdate();
+						System.out.println("Reviews created succesfully.");
+					
 				//FAVORITE BREEDERS TABLE
 				connect_func();
 		    	dropTablesSQL = "DROP TABLE IF EXISTS FAVBREEDERS;";

@@ -36,20 +36,17 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-String query = "SELECT (SELECT username From reviews), COUNT(username) FROM reviews GROUP BY username order by COUNT(username) desc;";
+String query = "SELECT username, COUNT(*) AS occurrences FROM reviews GROUP BY username ORDER BY occurrences DESC, username;";
 ResultSet rs = st.executeQuery(query);
 
-while(rs.next()) { %>
+rs.next(); %>
 	<table class=table>
-	<tr>
-    <td><%=rs.getString("username") %></td>
-    <td><%=rs.getString("count(username)") %></td>
-    </tr>
+		<tr>
+	    <td><%=rs.getString("username")%></td>
+	    <td><%=rs.getString("occurrences")%></td>
+	    </tr>
     </table>
 
-    <%
-}
-%>
 	</div>	
 	</main>
 

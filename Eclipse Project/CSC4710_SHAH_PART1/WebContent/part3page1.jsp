@@ -95,8 +95,8 @@ if(animal1 != null && animal2 != null) {
 			%>
 		</select>
 		<br></br>
+		<button type="submit" value="Submit" class="buttonTwo" style ="float:center">Submit</button>
 	</form>
-			<button type="submit" value="Submit" class="buttonTwo" style ="float:center">Submit</button>
 	</div>
 	</main>
 
