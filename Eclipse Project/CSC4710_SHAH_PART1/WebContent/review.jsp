@@ -37,7 +37,7 @@ ResultSet rs = st.executeQuery(query);
 
 %>
 
-
+<main>
 <div class="center">
 <div class="container">
 	<h1>Write A Review</h1>
@@ -75,15 +75,11 @@ ResultSet rs = st.executeQuery(query);
 	
 	</form>
 	
-	
-	
-	
-	
-	
-	
-	
-	
 </div>
 </div>
+<div class="footer">
+		<p>CSC 4710: Winter 2020</p>
+	</div>
+</main>
 </body>
 </html>

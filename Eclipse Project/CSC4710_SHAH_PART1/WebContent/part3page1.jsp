@@ -98,6 +98,10 @@ if(animal1 != null && animal2 != null) {
 		<button type="submit" value="Submit" class="buttonTwo" style ="float:center">Submit</button>
 	</form>
 	</div>
+		</div>
+		<div class="footer">
+		<p>CSC 4710: Winter 2020</p>
+	</div>
 	</main>
 
 </body>

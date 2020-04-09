@@ -48,6 +48,10 @@ rs.next(); %>
     </table>
 
 	</div>	
+		</div>
+		<div class="footer">
+		<p>CSC 4710: Winter 2020</p>
+	</div>
 	</main>
 
 </body>

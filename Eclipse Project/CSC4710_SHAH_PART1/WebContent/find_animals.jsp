@@ -17,6 +17,7 @@
 			<li class="current-menu-item"><a href="search_animal.jsp">Search Animals</a></li>
 			<li><a href="list_by_price.jsp">List By Price</a></li>
 			<li><a href="view_reviews.jsp">View Reviews</a></li>
+			<li><a href="part3menu.jsp">Part 3 Menu</a></li>
 		</ul>
 	</nav>
 	

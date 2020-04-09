@@ -203,14 +203,15 @@ public class connectDB extends HttpServlet {
 					preparedStatement.executeUpdate();
 					
 				dataInsertionSQL = "insert into REVIEWS (animalname, rating, review, username)\r\n" + 
-						"VALUES('Peppa','Adorbs','super fun to play with','ctwoof'),\r\n" + 
+						"VALUES('Peppa','Cray','super annoying','ctwoof'),\r\n" + 
 						"('Sher Khan','Totes Adorbs','Joe Exotics favorite gift','nidhinadig'),\r\n" + 
-						"('Stuart Little','Cray','lost him in the vents after 2 days','champagnepapi'),\r\n" + 
+						"('Stuart Little','Cray-Cray','lost him in the vents after 2 days','ctwoof'),\r\n" + 
 						"('Remy','Adorbs','makes great pasta','darpanshah'),\r\n" + 
 						"('Sonic','Cray-Cray','too hard to keep track of','nidhinadig'),\r\n" + 
 						"('Bagheera','Adorbs','super cuddly','darpanshah'),\r\n" + 
 						"('Baloo','Totes Adorbs','super cuddly','darpanshah'),\r\n" +
-						"('Scooby','Cray','keeps running away','ctwoof')";
+						"('Sher Khan','Totes Adorbs','would buy another','champagnepapi'),\r\n" +
+						"('Scooby','Cray','keeps running away','darpanshah')";
 						
 						preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 						preparedStatement.executeUpdate();

@@ -76,7 +76,7 @@
 		</tr>
 		<tr>
 			<td>Users w/ No Cray-Cray Reviews</td>
-			<td>List users who have never posted a Cray-Cray Review.</td>
+			<td>Lists users who have never posted a Cray-Cray Review.</td>
 			<td>
 				<form action="part3page6.jsp" method="post">
 					<button type="submit" value="Page 6" class="buttonTwo">Page 6</button> 
@@ -103,6 +103,9 @@
 		</tr>
 	</table>
 	
+	</div>
+		<div class="footer">
+		<p>CSC 4710: Winter 2020</p>
 	</div>
 	</main>
 </body>

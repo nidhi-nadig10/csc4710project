@@ -149,7 +149,7 @@ p {
 .blank_row
 {
     height: 40px !important; /* overwrites any other rules */
-    background-color: #FFFFFF;
+    background-color: #ffeee5;
 }
 
 .floatLeft { width: 50%; float: left; }
