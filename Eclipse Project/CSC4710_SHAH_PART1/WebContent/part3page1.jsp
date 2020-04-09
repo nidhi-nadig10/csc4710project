@@ -16,6 +16,15 @@
 	</nav>
 	
 	<main>
+		<div class="center">
+	<h1>Users Who Posted 2+ Animals of the Same Species</h1>
+	
+	<table class="table">
+		<tr>
+			<th>User Name</th>
+		</tr>
+	</table>
+	
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
 <%
@@ -28,28 +37,27 @@ Statement st = connect.createStatement();
 String animal1 = request.getParameter("animal1");
 String animal2 = request.getParameter("animal2");
 
-String query;
 PreparedStatement preparedStatement;
-%>
-	
-	<div class="center">
-	<h1>Users Who Posted 2+ Animals of the Same Species</h1>
-	
-	<table class="table">
-		<tr>
-			<th>User Name</th>
-		</tr>
-	</table>
-	
-<%
+
 if(animal1 != null && animal2 != null) {
-	query = "SELECT * FROM ANIMAL WHERE species = " + '"'+ animal1+'"' + " or species = " + '"'+ animal2+'"' + ";";
-}
+	String query = "SELECT username FROM animals WHERE species='"+animal1+"' and species='"+animal2+"'"; //SQL STATEMENT TO SELECT USER FROM ANIMALS TABLE THAT HAS POST BOTH SPECIES
+	ResultSet rs = st.executeQuery(query);
 
+while(rs.next()){
+%>	
+	<table class=table>
+	<tr>
+    <td><%=rs.getString("username") %></td>
+    </tr>
+    </table>
+    
+<% 
+	}
+}
 %>
 
 <%
-	query = "SELECT * FROM ANIMALS;";
+	String query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
 	ResultSet rs = st.executeQuery(query);
 %>
 	
@@ -73,7 +81,7 @@ if(animal1 != null && animal2 != null) {
 	</form>
 	
 	<%
-	query = "SELECT * FROM ANIMALS;";
+	query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
 	rs = st.executeQuery(query); 
 	%>
 	
