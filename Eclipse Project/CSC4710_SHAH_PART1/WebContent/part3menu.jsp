@@ -58,9 +58,9 @@
 		</tr>
 		<tr>
 			<td>Shared Favorite Animals</td>
-			<td>For any user, lists the favorite animals in common with a second user.</td>
+			<td>For any user, lists the favorite animals in common with two other users.</td>
 			<td>
-				<form action="part3page4.jsp" method="post">
+				<form action="common_favanimals.jsp" method="post">
 					<button type="submit" value="Page 4" class="buttonTwo">Page 4</button> 
 				</form>
 			</td>
