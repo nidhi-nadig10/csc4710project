@@ -23,6 +23,8 @@
 	String email= request.getParameter("email");
 	String user= request.getParameter("user");
 	String passw =request.getParameter("passw");
+	
+	boolean emailTaken = false, usernameTaken = false;
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		java.sql.Connection connect = DriverManager
@@ -30,10 +32,74 @@
 		     + "user=john&password=pass1234");
 		Statement st = connect.createStatement();
 		
-		String registerUserSQL = "INSERT INTO users(username, pw, firstname, lastname, email)\r\n" + 
-			"VALUES('"+user+"','"+passw+"','"+fName+"','"+lName+"','"+email+"')";
 		PreparedStatement preparedStatement;
-		preparedStatement = (PreparedStatement) connect.prepareStatement(registerUserSQL);
+
+		
+		
+	
+	String query = "SELECT email from users where email = '" + email + "';";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	ResultSet rs = preparedStatement.executeQuery(query);
+	
+	if(rs.next())
+	{
+		emailTaken = true;
+	}
+	
+	
+	query = "SELECT username from users where username = '" + user + "';";
+	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+	rs = preparedStatement.executeQuery(query);
+	
+	if(rs.next())
+	{
+		usernameTaken = true;
+	}
+	
+	
+	if(emailTaken == true && usernameTaken == true)
+	{
+		out.println("UNSUCCESSFUL REGISTRATION: EMAIL AND USERNAME ALREADY TAKEN");
+		out.println("Redirecting to Registration Page");
+					
+		%>
+				<head>  
+				<title>HTML Redirect</title>  
+				<meta http-equiv="refresh"content="3; url = user_reg.jsp" /> 
+				</head>  
+		<%	
+	}	
+	else if(emailTaken == true)
+	{
+		out.println("UNSUCCESSFUL REGISTRATION: EMAIL ALREADY TAKEN");
+		out.println("Redirecting to Registration Page");
+					
+		%>
+				<head>  
+				<title>HTML Redirect</title>  
+				<meta http-equiv="refresh"content="3; url = user_reg.jsp" /> 
+				</head>  
+		<%	
+	}
+	else if(usernameTaken == true)
+	{
+		out.println("UNSUCCESSFUL REGISTRATION: USERNAME ALREADY TAKEN");
+		out.println("Redirecting to Registration Page");
+					
+		%>
+				<head>  
+				<title>HTML Redirect</title>  
+				<meta http-equiv="refresh"content="3; url = user_reg.jsp" /> 
+				</head>  
+		<%	
+	}
+	else
+	{	
+	
+		
+		query = "INSERT INTO users(username, pw, firstname, lastname, email)\r\n" + 
+			"VALUES('"+user+"','"+passw+"','"+fName+"','"+lName+"','"+email+"')";
+		preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 		preparedStatement.executeUpdate();
 		//out.println("You are Registered!");		
 %>
@@ -50,6 +116,10 @@
 			</form>
 	</div>
 	</div>
+	<%
+	}
+
+	%>
 	
 	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>
