@@ -227,7 +227,8 @@ public class connectDB extends HttpServlet {
 		    	
 				 tableCreationSQL = " CREATE TABLE FAVBREEDERS (\r\n" + 
 						"   id INT NOT NULL auto_increment, \r\n" +
-						"   favUser varchar(255), 	\r\n" + 		
+						"   favUser varchar(255), 	\r\n" + 
+						"   username varchar(255), 	\r\n" +
 						"   PRIMARY KEY(id)\r\n" + 
 						");\r\n" + 
 						"";
@@ -235,10 +236,10 @@ public class connectDB extends HttpServlet {
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
 					
-					dataInsertionSQL = "insert into FAVBREEDERS (favUser)\r\n" + 
-							"values('champagnepapi'),\r\n" + 
-							"('darpanshah'),\r\n" + 
-							"('nidhinadig')";
+					dataInsertionSQL = "insert into FAVBREEDERS (favUser,username)\r\n" + 
+							"values('champagnepapi','root'),\r\n" + 
+							"('darpanshah','root'),\r\n" + 
+							"('nidhinadig','root')";
 							
 							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 							preparedStatement.executeUpdate();
@@ -254,7 +255,8 @@ public class connectDB extends HttpServlet {
 		    	
 				 tableCreationSQL = " CREATE TABLE FAVANIMALS (\r\n" + 
 						"   id INT NOT NULL auto_increment, \r\n" +
-						"   favAnimal varchar(255), 	\r\n" + 		
+						"   favAnimal varchar(255), 	\r\n" +
+						"   username varchar(255), 	\r\n" + 
 						"   PRIMARY KEY(id)\r\n" + 
 						");\r\n" + 
 						"";
@@ -262,10 +264,10 @@ public class connectDB extends HttpServlet {
 					preparedStatement = (PreparedStatement) connect.prepareStatement(tableCreationSQL);
 					preparedStatement.executeUpdate();
 					
-					dataInsertionSQL = "insert into FAVANIMALS (favAnimal)\r\n" + 
-							"values('Fido'),\r\n" + 
-							"('Remy'),\r\n" + 
-							"('Baloo')";
+					dataInsertionSQL = "insert into FAVANIMALS (favAnimal, username)\r\n" + 
+							"values('Fido', 'darpanshah'),\r\n" + 
+							"('Remy','nidhinadig'),\r\n" + 
+							"('Baloo','root')";
 							
 							preparedStatement = (PreparedStatement) connect.prepareStatement(dataInsertionSQL);
 							preparedStatement.executeUpdate();

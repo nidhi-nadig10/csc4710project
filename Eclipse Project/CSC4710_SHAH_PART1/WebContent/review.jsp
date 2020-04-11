@@ -31,6 +31,9 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
+
+
+
 String query = "SELECT * FROM ANIMALS;";
 
 ResultSet rs = st.executeQuery(query);

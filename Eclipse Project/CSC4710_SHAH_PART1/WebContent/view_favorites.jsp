@@ -20,13 +20,7 @@
 		</ul>
 	</nav>
 	
-	<main>
-	<div class="center">
-	<table class = table>
-		<tr>
-		<th>Favorite Breeders</th>
-		</tr>
-	</table>
+	
 	
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
@@ -42,41 +36,63 @@ String favBreeder = request.getParameter("addBreeder");
 String favAnimal = request.getParameter("addAnimal");
 String removeBreeder = request.getParameter("removeBreeder");
 String removeAnimal = request.getParameter("removeAnimal");
+String user = null;
 
 String query;
 PreparedStatement preparedStatement;
 
+query = "SELECT * FROM LOGGEDINUSER;";
+preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+ResultSet rs1 = preparedStatement.executeQuery(query);
+
+if(rs1.next())
+{
+	user = rs1.getString("username");
+}
+
+
+%>
+<main>
+	<div class="center">
+	<table class = table>
+		<tr>
+		<th>Favorite Breeders for <% out.print(user);%></th>
+		</tr>
+	</table>
+
+<%
+
+
 if(favBreeder!=null)
 {
-	query = "INSERT INTO FAVBREEDERS(favUser)\r\n" + "VALUES('"+favBreeder+"') ON DUPLICATE KEY UPDATE id=id";
+	query = "INSERT INTO FAVBREEDERS(favUser,username)\r\n" + "VALUES('"+favBreeder+"','" + user + "') ON DUPLICATE KEY UPDATE id=id";
 	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 	preparedStatement.executeUpdate();
 }
 
 if(favAnimal!=null)
 {
-	query = "INSERT IGNORE INTO FAVANIMALS(favAnimal)\r\n" + "VALUES('"+favAnimal+"')";
+	query = "INSERT IGNORE INTO FAVANIMALS(favAnimal,username)\r\n" + "VALUES('"+favAnimal+"','" + user + "')";
 	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 	preparedStatement.executeUpdate();
 }
 
 if(removeBreeder!=null)
 {
-	query = "DELETE FROM FAVBREEDERS WHERE favUser='"+removeBreeder+"';";
+	query = "DELETE FROM FAVBREEDERS WHERE favUser='"+removeBreeder+"' AND username = '" + user + "';";
 	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 	preparedStatement.executeUpdate();
 }
 
 if(removeAnimal!=null)
 {
-	query = "DELETE FROM FAVANIMALS WHERE favAnimal='"+removeAnimal+"';";
+	query = "DELETE FROM FAVANIMALS WHERE favAnimal='"+removeAnimal+"' AND username = '" + user + "';";
 	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 	preparedStatement.executeUpdate();
 }
 
 
-query = "SELECT * FROM FAVBREEDERS;";
-
+query = "SELECT * FROM FAVBREEDERS WHERE username ='" + user + "';";
 ResultSet rs = st.executeQuery(query);
 
 
@@ -98,14 +114,15 @@ while(rs.next()){
 	
 	<table class = table>
 		<tr>
-		<th>Favorite Animals</th>
+		<th>Favorite Animals for <% out.print(user);%></th>
 		</tr>
 	</table>
 	
 
 <% 
- query = "SELECT * FROM FAVANIMALS;";
 
+
+ query = "SELECT * FROM FAVANIMALS WHERE username ='" + user + "';";
  rs = st.executeQuery(query);
  %>
 
@@ -151,7 +168,7 @@ while(rs.next()){
 	</form>
 	
 	<%
-	query = "SELECT * FROM FAVBREEDERS;";
+	query = "SELECT * FROM FAVBREEDERS WHERE username ='" + user + "';";
 	rs = st.executeQuery(query); 
 	%>
 	
@@ -179,7 +196,7 @@ while(rs.next()){
 	</form>
 	
 	<% 
-	query = "SELECT * FROM FAVANIMALS;";
+	query = "SELECT * FROM FAVANIMALS WHERE username ='" + user + "';";
 	rs = st.executeQuery(query); 
 	
 	%>
