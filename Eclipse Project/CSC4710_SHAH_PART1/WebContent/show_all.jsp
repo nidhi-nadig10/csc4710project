@@ -17,6 +17,7 @@
 			<li><a href="list_by_price.jsp">List By Price</a></li>
 			<li><a href="view_reviews.jsp">View Reviews</a></li>
 			<li><a href="part3menu.jsp">Part 3 Menu</a></li>
+			<li><a href="login_page.jsp">Sign Out</a></li>
 		</ul>
 	</nav>
 	

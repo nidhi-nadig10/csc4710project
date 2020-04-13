@@ -20,10 +20,14 @@
 	</nav>
 	
 	<main>
+	
 	<div class="center">
+	<h1>ADOPTION CRATE</h1>
 	<table class = table>
 		<tr>
-		<th>ADOPTION CRATE</th>
+			<th>NAME</th>
+			<th>SPECIES</th>
+			<th>PRICE</th>
 		</tr>
 	</table>
 	
@@ -44,11 +48,21 @@ String removeAnimal = request.getParameter("removeAnimal");
 String query;
 PreparedStatement preparedStatement;
 
+String species="";
+float price = 0;
+query = "SELECT * FROM ANIMALS WHERE name = '" + addAnimal + "';";
+ResultSet rs = st.executeQuery(query);
+
+if(rs.next())
+{
+	species = rs.getString("species");
+	price = rs.getFloat("price");
+}
 
 
 if(addAnimal!=null)
 {
-	query = "INSERT IGNORE INTO ADOPTIONCRATE(name)\r\n" + "VALUES('"+addAnimal+"')";
+	query = "INSERT IGNORE INTO ADOPTIONCRATE(name,species,price)\r\n" + "VALUES('"+addAnimal+"','" + species+ "','" + price + "');"; 
 	preparedStatement = (PreparedStatement) connect.prepareStatement(query);
 	preparedStatement.executeUpdate();
 }
@@ -65,7 +79,7 @@ if(removeAnimal!=null)
 
 query = "SELECT * FROM ADOPTIONCRATE;";
 
-ResultSet rs = st.executeQuery(query);
+rs = st.executeQuery(query);
 
 
 while(rs.next()){
