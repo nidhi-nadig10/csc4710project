@@ -4,27 +4,19 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Adoption Agency | Favorites</title>
+	<title>Adoption Agency | Common Favorites</title>
 	<link rel="stylesheet" type="text/css" href="woof.jsp">
 </head>
 <body>
-	<nav id="navigation">
+<nav id="navigation">
 		<ul>
 			<li><a href="show_all.jsp">Home</a></li>
-			<li><a href="add_animal.jsp">Post an Animal</a></li>
-			<li class="current-menu-item"><a href="view_favorites.jsp">View Favorites</a></li>
-			<li><a href="search_animal.jsp">Search Animals</a></li>
-			<li><a href="list_by_price.jsp">List By Price</a></li>
-			<li><a href="view_reviews.jsp">View Reviews</a></li>
 			<li><a href="part3menu.jsp">Part 3 Menu</a></li>
 		</ul>
 	</nav>
 	
 	<main>
 	<div class="center">
-	
-	
-	
 	
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
@@ -53,7 +45,6 @@ if(rs1.next())
 {
 	user = rs1.getString("username");
 }
-
 
 
 if(user1 != null && user2 != null)
@@ -142,14 +133,19 @@ if(user1 != null && user2 != null)
 }
 else
 {
-	out.println("ENTER TWO USERS TO COMPARE");
+	
+	%>
+	<h3>ENTER TWO USERS TO COMPARE</h3>
+	
+	<%
+	//out.println("ENTER TWO USERS TO COMPARE");
 	query = "SELECT * FROM USERS;";
 	rs = st.executeQuery(query);
 	
 	%>
 	
 	<form action= "common_favanimals.jsp" method= "post" style ="float:center">
-	<h3>Select USERS</h3>
+	<h3>Select Users</h3>
 	<select name = "user1" multiple = "multiple" size = 7>
 		<option></option>
 		<% 
@@ -201,13 +197,8 @@ else
 
 %>
 	
-	
 
-	
-	
-	
-
-
+</div>
 </div>	
 	</main>
 	<div class="footer">

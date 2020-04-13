@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Adoption Agency | Most Reviews</title>
+	<title>Adoption Agency | </title>
 	<link rel="stylesheet" type="text/css" href="woof.jsp">
 </head>
 <body>
@@ -17,13 +17,6 @@
 	
 	<main>
 		<div class="center">
-	<h1>Users Who Posted 2+ Animals of the Same Species</h1>
-	
-	<table class="table">
-		<tr>
-			<th>User Name</th>
-		</tr>
-	</table>
 	
 <%@ page import ="java.sql.*" %>
 <%@ page import = "javax.sql.*" %>
@@ -34,36 +27,60 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-String animal1 = request.getParameter("animal1");
-String animal2 = request.getParameter("animal2");
+String species1 = request.getParameter("species1");
+String species2 = request.getParameter("species2");
 
+String user = null;
+
+String query;
 PreparedStatement preparedStatement;
+ResultSet rs;
 
-if(animal1 != null && animal2 != null) {
-	String query = "SELECT username FROM animals WHERE species='"+animal1+"' and species='"+animal2+"'"; //SQL STATEMENT TO SELECT USER FROM ANIMALS TABLE THAT HAS POST BOTH SPECIES
-	ResultSet rs = st.executeQuery(query);
+/* 
+query = "SELECT * FROM LOGGEDINUSER;";
+preparedStatement = (PreparedStatement) connect.prepareStatement(query);
+ResultSet rs1 = preparedStatement.executeQuery(query);
 
-while(rs.next()){
-%>	
-	<table class=table>
-	<tr>
-    <td><%=rs.getString("username") %></td>
-    </tr>
-    </table>
-    
-<% 
-	}
-}
-%>
+if(rs1.next())
+{
+	user = rs1.getString("username");
+} */
 
-<%
-	String query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
-	ResultSet rs = st.executeQuery(query);
-%>
+
+if(species1 != null && species2 != null)
+{
+	query = "SELECT A.species, B.species, A.username FROM animals A, animals B WHERE A.species = '" + species1 + "' AND B.species = '" + species2 + "' AND A.username = B.username GROUP BY A.username;";
+	rs = st.executeQuery(query);
+	%>
 	
-	<form action="part3page1.jsp" method= "post" style ="float:left">
-		<h3>Species 1</h3>
-		<select name= "animal1">
+	<div class="center">
+	<table class = table>
+		<tr>
+		<th>Users who have posted <% out.print(species1 + " and " + species2);%></th>
+		</tr>
+	</table>
+	
+	<%
+	
+	while(rs.next()){
+		%>	
+			<table class=table>
+			<tr>
+		    <td><%=rs.getString("username") %></td>
+		    </tr>
+		    </table>
+		    
+		<% 
+		}
+	
+	query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
+	rs = st.executeQuery(query);
+	
+	%>
+	
+	<form action= "part3page1.jsp" method= "post" style ="float:center">
+	<h3>Species One</h3>
+	<select name = "species1" multiple = "multiple" size = 7>
 		<option></option>
 		<% 
 		while (rs.next())
@@ -77,17 +94,54 @@ while(rs.next()){
 			<% }
 			
 			%>
-		</select>
+
+	</select>
+
+
+	<% 	
+	query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
+	rs = st.executeQuery(query);
+	%>
+	
+	<h3>User 2</h3>
+	<select name = "species2" multiple = "multiple" size = 7>
+		<option></option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("species");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Animals" class="buttonTwo">Compare Users</button>
 	</form>
+
+<%	
+}
+else
+{
+	
+	%>
+	<h3>Select Two Species</h3>
 	
 	<%
 	query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
-	rs = st.executeQuery(query); 
+	rs = st.executeQuery(query);
+	
 	%>
 	
-	<form action="part3page1.jsp" method= "post" style ="float:right">
-		<h3>Species 2</h3>
-		<select>
+	<form action= "part3page1.jsp" method= "post" style ="float:center">
+	<h3>Select Species</h3>
+	<select name = "species1" multiple = "multiple" size = 7>
 		<option></option>
 		<% 
 		while (rs.next())
@@ -101,16 +155,47 @@ while(rs.next()){
 			<% }
 			
 			%>
-		</select>
-		<br></br>
-		<button type="submit" value="Submit" class="buttonTwo" style ="float:center">Submit</button>
+
+	</select>
+
+
+	<% 	
+	query = "SELECT * FROM ANIMALS GROUP BY SPECIES;";
+	rs = st.executeQuery(query);
+	%>
+	
+	
+	<select name = "species2" multiple = "multiple" size = 7>
+		<option></option>
+		<% 
+		while (rs.next())
+			{ 
+				String value = rs.getString("species");
+			
+			%>
+			
+			<option> <%= value%> </option>
+				
+			<% }
+			
+			%>
+
+	</select>
+	<br></br>
+	
+	<button type="submit" value="Find Users" class="buttonTwo">Find Users</button>
 	</form>
-	</div>
-		</div>
-		<div class="footer">
+	
+	<%
+}
+
+%>
+
+</div>
+</div>	
+	</main>
+	<div class="footer">
 		<p>CSC 4710: Winter 2020</p>
 	</div>
-	</main>
-
 </body>
 </html>

@@ -35,7 +35,7 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-String query = "SELECT animalname FROM reviews WHERE rating= 'Totes Adorbs' HAVING COUNT(animalname) >= 2;";
+String query = "SELECT animalname FROM reviews WHERE rating= 'Totes Adorbs' HAVING COUNT(animalname) > 1;";
 
 ResultSet rs = st.executeQuery(query);
 
