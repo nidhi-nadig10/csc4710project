@@ -141,7 +141,7 @@ public class connectDB extends HttpServlet {
 				"('Remy','Rat','darpanshah','1986/10/31','50','dirty,adventurous,wiggly'),\r\n" + 
 				"('Peppa','Pig','nidhinadig','1999/08/10','1000000','sexy,flawless'),\r\n" + 
 				"('Stuart Little','Rat','darpanshah','2004/03/27','5000','adventurous, wiggly'),\r\n" + 
-				"('Cat in the Hat','Cat','Corey','2000/08/16','200','adventurous,fluffy'),\r\n" + 
+				"('Cat in the Hat','Cat','ctwoof','2000/08/16','200','adventurous,fluffy'),\r\n" + 
 				"('Sher Khan','Tiger','champagnepapi','1999/05/11','1000','angry,feisty'),\r\n" + 
 				"('Baloo','Dog','champagnepapi','2002/01/27','8000','energetic, sleepy'),\r\n" +
 				"('Bagheera','Cat','champagnepapi','2005/10/20','6000','fast'),\r\n" +
