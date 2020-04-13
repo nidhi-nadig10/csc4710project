@@ -249,11 +249,6 @@ while(rs.next()){
 	
 	<button type="submit" value="Find Animals" class="buttonTwo">Add Fav Animal</button>
 	</form>
-	
-	
-	
-	
-
 
 </div>	
 	</main>

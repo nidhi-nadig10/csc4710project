@@ -34,7 +34,7 @@ java.sql.Connection connect = DriverManager
       + "user=john&password=pass1234");
 Statement st = connect.createStatement();
 
-String query = "SELECT username FROM users WHERE username in (Select distinct username FROM animals WHERE username not in (Select username From animals WHERE name in (Select animalname From reviews Where rating='Cray' or rating='Cray-Cray')Group By username));";
+String query = "SELECT username FROM users WHERE username in (Select distinct username FROM animals WHERE username not in (Select username From animals WHERE name in (Select animalname From reviews Where rating='Cray-Cray')Group By username));";
 
 ResultSet rs = st.executeQuery(query);
 
