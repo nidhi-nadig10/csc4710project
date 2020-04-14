@@ -39,14 +39,17 @@ Statement st = connect.createStatement();
 String query = "SELECT username, COUNT(*) AS occurrences FROM reviews GROUP BY username ORDER BY occurrences DESC, username;";
 ResultSet rs = st.executeQuery(query);
 
-rs.next(); %>
+while(rs.next()) { %>
 	<table class=table>
 		<tr>
 	    <td><%=rs.getString("username")%></td>
 	    <td><%=rs.getString("occurrences")%></td>
 	    </tr>
     </table>
+<%
+}
 
+%>
 	</div>	
 		</div>
 		<div class="footer">
